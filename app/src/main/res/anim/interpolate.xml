@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<set
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:interpolator="@android:anim/linear_interpolator"
+    >
+
+    <!--<translate-->
+        <!--android:interpolator="@android:anim/bounce_interpolator"-->
+        <!--android:fromYDelta="0%p"-->
+        <!--android:toYDelta="100"-->
+        <!--android:duration="500"/>-->
+
+    <translate
+        android:fromYScale="1.0"
+        android:toYScale="3.0"
+        android:fromXScale = "1.0"
+        android:toXScale = "3.0"
+        android:pivotX = "50%"
+        android:pivotY = "50%"
+        android:repeatCount="1"
+        android:repeatMode="reverse"
+        android:duration="500"/>
+
+</set>

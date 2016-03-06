@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">apro16</string>
+
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="home">HOME</string>
+    <string name="event">EVENT LOG</string>
+    <string name="schedule">SCHEDULE</string>
+    <string name="updates">UPDATES</string>
+    <string name="eventnow">EVENTS NOW</string>
+    <string name="favorites">FAVORITES</string>
+    <string name="sponsors">SPONSORS</string>
+    <string name="contacts">CONTACTS</string>
+    <string name="developers">DEVELOPERS</string>
+</resources>
