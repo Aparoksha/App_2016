@@ -33,6 +33,7 @@ public class Day0 extends AppCompatActivity{
     int[] images;
     String[] timing;
     String[] intents;
+    String[] venue;
     TextView eventName;
 
     @Override
@@ -89,20 +90,22 @@ public class Day0 extends AppCompatActivity{
 
 
         //Add events in this array
-        events_1 = new String[] {"Director's Cut", "Double Trouble", "Innovation", "Bindaas Bol", "Tongues on fire","Kahaani"};
+        events_1 = new String[] {"Aparoksha Inauguration Ceremony", "Hack In The North Opening Ceremony", "Treasure Hunt", "Movie - Steve Jobs (2015)", "Movie - The Martian (2015)"};
 
-        images = new int[] {R.mipmap.ic_launcher,R.mipmap.ic_launcher,R.mipmap.ic_launcher,R.mipmap.ic_launcher,R.mipmap.ic_launcher,R.mipmap.ic_launcher,R.mipmap.ic_launcher, };
+        images = new int[] {R.mipmap.ic_launcher,R.mipmap.ic_launcher,R.mipmap.ic_launcher,R.mipmap.ic_launcher,R.mipmap.ic_launcher };
 
-        timing = new String[] {"All day","Sat, 15:00","Fri, 22:00","Fri, 13:00","Sat, 15:00","All day"};
+        timing = new String[] {"6.30 PM","9.30 PM","10 PM","11 PM","1 AM"};
 
-        intents = new String[]{"DES", "DES", "DES", "DES", "DES", "DES", "DES", "DES", "DES", "DES", "DES", };
+        venue = new String[]{"Main Audi","Main Audi","CC3","Main Audi/LT","Main Audi/LT"};
 
-        initList(events_1, images, timing, intents);
+        intents = new String[]{"DES", "Eventlist_HackInTheNorth", "DES", "DES", "DES", "DES", "DES", "DES", "DES", "DES", "DES", };
+
+        initList(events_1, images, timing, venue, intents);
 
     }
 
 
-    public void initList(String[] eventsArray, int[] imagesList, String[] timingList, String[] intentsList) {
+    public void initList(String[] eventsArray, int[] imagesList, String[] timingList, String[] venue, String[] intentsList) {
         if(eventsArray.length != 0) {
 
             ArrayList<HashMap<String, String>> eventList = new ArrayList<HashMap<String, String>>();
@@ -112,6 +115,7 @@ public class Day0 extends AppCompatActivity{
                 candy.put("event", eventsArray[i]);
                 candy.put("image", Integer.toString(imagesList[i]));
                 candy.put("time", timingList[i]);
+                candy.put("venue", venue[i]);
                 candy.put("intent", "com.app.aparoksha.apro16."+intentsList[i].trim());
                 eventList.add(candy);
             }
@@ -120,8 +124,8 @@ public class Day0 extends AppCompatActivity{
                     Day0.this ,
                     eventList,
                     R.layout.list_item,
-                    new String[] { "event", "image", "time", "intent" },
-                    new int[] { R.id.event_name, R.id.eventImg, R.id.eventTime, R.id.intent }) {
+                    new String[] { "event", "image", "time", "venue", "intent" },
+                    new int[] { R.id.event_name, R.id.eventImg, R.id.eventTime, R.id.eventVenue, R.id.intent }) {
                 @Override
                 public View getView(int position, View convertView, ViewGroup parent) {
                     View view = super.getView(position, convertView, parent);
@@ -142,6 +146,7 @@ public class Day0 extends AppCompatActivity{
                         // open
 
                         String intentToOpen = "com.app.aparoksha.apro16." + intents[position];
+
 
                         Intent i = new Intent(intentToOpen);
                         i.putExtra("INTENT", intentToOpen);

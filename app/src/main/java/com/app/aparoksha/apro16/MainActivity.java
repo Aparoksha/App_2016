@@ -4,7 +4,6 @@ import android.animation.ObjectAnimator;
 import android.animation.PropertyValuesHolder;
 import android.content.Intent;
 import android.graphics.Typeface;
-import android.opengl.Visibility;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -20,7 +19,6 @@ import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.oguzdev.circularfloatingactionmenu.library.FloatingActionButton;
 import com.oguzdev.circularfloatingactionmenu.library.FloatingActionMenu;
@@ -45,7 +43,7 @@ public class MainActivity extends AppCompatActivity{
     Toolbar toolbar;
     TextView act_name;
 
-    ImageView micon,itemIcon1,itemIcon2,itemIcon3;
+    ImageView micon,itemIcon1,itemIcon2,itemIcon3,itemIcon4;
 
     public TextView thome,tevents,tschedule,tupdates,teventsnow,tfavorites,tsponsors,tcontacts,tdevelopers;
    // private LinearLayout ll;
@@ -102,9 +100,12 @@ public class MainActivity extends AppCompatActivity{
         itemIcon2.setImageDrawable(getResources().getDrawable(R.drawable.icon_start_2x));
         button2 = itemBuilder.setContentView(itemIcon2).setBackgroundDrawable(getResources().getDrawable(R.drawable.button_action_blue_selector)).build();
         itemIcon3 = new ImageView(this);
-        itemIcon2.setImageDrawable(getResources().getDrawable(R.drawable.icon_start_2x));
+        itemIcon3.setImageDrawable(getResources().getDrawable(R.drawable.icon_start_2x));
         button3 = itemBuilder.setContentView(itemIcon3).setBackgroundDrawable(getResources().getDrawable(R.drawable.button_action_blue_selector)).build();
-
+        /*itemIcon4 = new ImageView(this);
+        itemIcon4.setImageDrawable(getResources().getDrawable(R.drawable.icon_start_2x));
+        button4 = itemBuilder.setContentView(itemIcon3).setBackgroundDrawable(getResources().getDrawable(R.drawable.button_action_blue_selector)).build();
+*/
         fabMenu = new FloatingActionMenu.Builder(this)
                 .addSubActionView(itemBuilder.setContentView(button1).build())
                 .addSubActionView(itemBuilder.setContentView(button2).build())
@@ -136,19 +137,25 @@ public class MainActivity extends AppCompatActivity{
         button1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(view.getContext(), "button1", Toast.LENGTH_SHORT).show();
+                //Toast.makeText(view.getContext(), "button1", Toast.LENGTH_SHORT).show();
+                Intent i =  new Intent(MainActivity.this,Day0.class);
+                startActivity(i);
             }
         });
         button2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(view.getContext(), "button2", Toast.LENGTH_SHORT).show();
+                //Toast.makeText(view.getContext(), "button2", Toast.LENGTH_SHORT).show();
+                Intent i =  new Intent(MainActivity.this,Day1.class);
+                startActivity(i);
             }
         });
         button3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(view.getContext(), "button3", Toast.LENGTH_SHORT).show();
+                //Toast.makeText(view.getContext(), "button3", Toast.LENGTH_SHORT).show();
+                Intent i =  new Intent(MainActivity.this,Day2.class);
+                startActivity(i);
             }
         });
 
@@ -331,7 +338,7 @@ public class MainActivity extends AppCompatActivity{
     public void ceventnow(View v){
         //resetstyle();
         //teventsnow.setTextAppearance(R.style.TextView_GuillotineItem_Selected);
-        Intent i =  new Intent(MainActivity.this,EventNow.class);
+        Intent i =  new Intent(MainActivity.this,Updates.class);
         startActivity(i);
         //finish();
     }
@@ -370,7 +377,7 @@ public class MainActivity extends AppCompatActivity{
     public void cdeveloper(View v){
         //resetstyle();
         //tdevelopers.setTextAppearance(R.style.TextView_GuillotineItem_Selected);
-        Intent i =  new Intent(MainActivity.this,Description.class);
+        Intent i =  new Intent(MainActivity.this,Developers.class);
         startActivity(i);
         //finish();
     }

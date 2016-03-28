@@ -1,5 +1,6 @@
 package com.app.aparoksha.apro16;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
@@ -7,7 +8,6 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.GridView;
-import android.widget.Toast;
 
 /**
  * Created by Satyam Poddar on 30-Jan-16.
@@ -46,7 +46,22 @@ public class Schedule extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view,
                                     int position, long id) {
-                Toast.makeText(Schedule.this, "You Clicked at " + text[+position], Toast.LENGTH_SHORT).show();
+                //Toast.makeText(Schedule.this, "You Clicked at " + text[+position], Toast.LENGTH_SHORT).show();
+                Intent i;
+                if(text[+position].equals("Prelims")) {
+                     i = new Intent(Schedule.this, Day0.class);
+                }
+                else if(text[+position].equals("Day 1")) {
+                     i = new Intent(Schedule.this, Day1.class);
+                }
+                else if(text[+position].equals("Day 2")) {
+                     i = new Intent(Schedule.this, Day2.class);
+                }
+                else{
+                     i = new Intent(Schedule.this, Day3.class);
+                }
+
+                startActivity(i);
 
             }
         });

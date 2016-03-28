@@ -91,11 +91,11 @@ public class Cat_coding extends AppCompatActivity{
 
 
         //Add events in this array
-        events_1 = new String[] {"Alkhwarizm", "Blind War", "C Fresh", "C Hunt", "C Master", "Ex-Machina", "Humble Fool Cup", "Infinitum", "Three Muskeeters"};
+        events_1 = new String[] {"C Fresh", "C Master", "Infinitum", "Three Muskeeters","Backbone", "Webkriti"};
 
-        images = new int[] {R.mipmap.ic_launcher, R.mipmap.ic_launcher,R.mipmap.ic_launcher,R.mipmap.ic_launcher,R.mipmap.ic_launcher,R.mipmap.ic_launcher,R.mipmap.ic_launcher,R.mipmap.ic_launcher, R.mipmap.ic_launcher};
+        images = new int[] {R.mipmap.ic_launcher, R.mipmap.ic_launcher,R.mipmap.ic_launcher,R.mipmap.ic_launcher,R.mipmap.ic_launcher};
 
-        timing = new String[] {"bakchod", "All day","Saare","All Day","Bharne","Hain","Chooth", "Ke", "Patthhe"};
+        timing = new String[] {"All Day"};
 
         intents = new String[]{"DES", "DES", "DES", "DES", "DES", "DES", "DES", "DES", "DES"};
 
