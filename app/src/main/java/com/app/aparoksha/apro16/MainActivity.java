@@ -1,8 +1,15 @@
 package com.app.aparoksha.apro16;
 
+import android.animation.ObjectAnimator;
+import android.animation.PropertyValuesHolder;
 import android.content.Intent;
-import android.graphics.Point;
+import android.graphics.Typeface;
+import android.opengl.Visibility;
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentStatePagerAdapter;
+import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
@@ -11,36 +18,47 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.FrameLayout;
+import android.widget.ImageView;
+import android.widget.TextView;
+import android.widget.Toast;
 
-import com.dev.sacot41.scviewpager.DotsView;
-import com.dev.sacot41.scviewpager.SCPositionAnimation;
-import com.dev.sacot41.scviewpager.SCViewAnimation;
-import com.dev.sacot41.scviewpager.SCViewAnimationUtil;
-import com.dev.sacot41.scviewpager.SCViewPager;
-import com.dev.sacot41.scviewpager.SCViewPagerAdapter;
+import com.oguzdev.circularfloatingactionmenu.library.FloatingActionButton;
+import com.oguzdev.circularfloatingactionmenu.library.FloatingActionMenu;
+import com.oguzdev.circularfloatingactionmenu.library.SubActionButton;
 import com.yalantis.guillotine.animation.GuillotineAnimation;
 
 import butterknife.ButterKnife;
 import butterknife.InjectView;
 
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity{
 
-    private static final int NUM_PAGES = 5;
-
-    private SCViewPager mViewPager;
-    private SCViewPagerAdapter mPageAdapter;
-    private DotsView mDotsView;
-
+    private static final int NUM_PAGES = 4;
     //Toolbar toolbar;
     private FrameLayout root;
     private View contentHamburger;
+    public FloatingActionMenu fabMenu;
+    public View actionButton,button1,button2,button3;
 
     private static final long RIPPLE_DURATION = 250;
     @InjectView(R.id.toolbar)
     Toolbar toolbar;
+    TextView act_name;
 
+    ImageView micon,itemIcon1,itemIcon2,itemIcon3;
+
+    public TextView thome,tevents,tschedule,tupdates,teventsnow,tfavorites,tsponsors,tcontacts,tdevelopers;
    // private LinearLayout ll;
+    /**
+     * The pager widget, which handles animation and allows swiping horizontally to access previous
+     * and next wizard steps.
+     */
+    private ViewPager mPager;
+
+    /**
+     * The pager adapter, which provides the pages to the view pager widget.
+     */
+    private PagerAdapter mPagerAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -60,165 +78,103 @@ public class MainActivity extends AppCompatActivity {
             getSupportActionBar().setElevation((float) 1.5);
         }
 
+        act_name = (TextView)findViewById(R.id.main_actname);
+        Typeface tf1 = Typeface.createFromAsset(getAssets(),
+                "JosefinSans-Regular.ttf");
 
-        mViewPager = (SCViewPager) findViewById(R.id.viewpager_main_activity);
-        mDotsView = (DotsView) findViewById(R.id.dotsview_main);
-        mDotsView.setDotRessource(R.drawable.dot_selected, R.drawable.dot_unselected);
-        mDotsView.setNumberOfPage(NUM_PAGES);
+        act_name.setTypeface(tf1);
+        act_name.setText("Aparoksha'16");
 
-        mPageAdapter = new SCViewPagerAdapter(getSupportFragmentManager());
-        mPageAdapter.setNumberOfPage(NUM_PAGES);
-        mPageAdapter.setFragmentBackgroundColor(R.color.blackminus);
-        mViewPager.setAdapter(mPageAdapter);
+        micon = new ImageView(this);
+        micon.setImageDrawable(getResources().getDrawable(R.drawable.ic_action_new));
+        //micon = (ImageView)findViewById(R.id.mainIcon);
+        actionButton = new FloatingActionButton.Builder(this)
+                .setContentView(micon)
+                .setBackgroundDrawable(R.drawable.button_action_red_selector)
+                .build();
 
-       /* final LayerDrawable background = (LayerDrawable) mViewPager.getBackground();
+        SubActionButton.Builder itemBuilder = new SubActionButton.Builder(this);
+// repeat many times:
+        itemIcon1 = new ImageView(this);
+        itemIcon1.setImageDrawable(getResources().getDrawable(R.drawable.icon_start_2x));
+        button1 = itemBuilder.setContentView(itemIcon1).setBackgroundDrawable(getResources().getDrawable(R.drawable.button_action_blue_selector)).build();
+        itemIcon2 = new ImageView(this);
+        itemIcon2.setImageDrawable(getResources().getDrawable(R.drawable.icon_start_2x));
+        button2 = itemBuilder.setContentView(itemIcon2).setBackgroundDrawable(getResources().getDrawable(R.drawable.button_action_blue_selector)).build();
+        itemIcon3 = new ImageView(this);
+        itemIcon2.setImageDrawable(getResources().getDrawable(R.drawable.icon_start_2x));
+        button3 = itemBuilder.setContentView(itemIcon3).setBackgroundDrawable(getResources().getDrawable(R.drawable.button_action_blue_selector)).build();
 
-        background.getDrawable(0).setAlpha(0); // this is the lowest drawable
-        background.getDrawable(1).setAlpha(0);
-        background.getDrawable(2).setAlpha(0);
-        background.getDrawable(3).setAlpha(0);
-        background.getDrawable(4).setAlpha(255); // this is the upper one*/
+        fabMenu = new FloatingActionMenu.Builder(this)
+                .addSubActionView(itemBuilder.setContentView(button1).build())
+                .addSubActionView(itemBuilder.setContentView(button2).build())
+                .addSubActionView(itemBuilder.setContentView(button3).build())
+                .attachTo(actionButton)
+                .build();
 
-       /* mViewPager.setPageTransformer(true, new ViewPager.PageTransformer() {
+        fabMenu.setStateChangeListener(new FloatingActionMenu.MenuStateChangeListener() {
             @Override
-            public void transformPage(View view, float position) {
-
-                int index = (Integer) view.getTag();
-                Drawable currentDrawableInLayerDrawable;
-                currentDrawableInLayerDrawable = background.getDrawable(index);
-
-                if(position <= -1 || position >= 1) {
-                    currentDrawableInLayerDrawable.setAlpha(0);
-                } else if( position == 0 ) {
-                    currentDrawableInLayerDrawable.setAlpha(255);
-                } else {
-                    currentDrawableInLayerDrawable.setAlpha((int)(255 - Math.abs(position*255)));
-                }
+            public void onMenuOpened(FloatingActionMenu menu) {
+                // Rotate the icon of rightLowerButton 45 degrees clockwise
+                micon.setRotation(0);
+                PropertyValuesHolder pvhR = PropertyValuesHolder.ofFloat(View.ROTATION, 45);
+                ObjectAnimator animation = ObjectAnimator.ofPropertyValuesHolder(micon, pvhR);
+                animation.start();
 
             }
-        });*/
 
-        mViewPager.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+            @Override
+            public void onMenuClosed(FloatingActionMenu menu) {
+                // Rotate the icon of rightLowerButton 45 degrees counter-clockwise
+                micon.setRotation(45);
+                PropertyValuesHolder pvhR = PropertyValuesHolder.ofFloat(View.ROTATION, 0);
+                ObjectAnimator animation = ObjectAnimator.ofPropertyValuesHolder(micon, pvhR);
+                animation.start();
+            }
+        });
+
+        button1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(view.getContext(), "button1", Toast.LENGTH_SHORT).show();
+            }
+        });
+        button2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(view.getContext(), "button2", Toast.LENGTH_SHORT).show();
+            }
+        });
+        button3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(view.getContext(), "button3", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        // Instantiate a ViewPager and a PagerAdapter.
+        mPager = (ViewPager) findViewById(R.id.pager);
+        mPagerAdapter = new ScreenSlidePagerAdapter(getSupportFragmentManager());
+        mPager.setAdapter(mPagerAdapter);
+        mPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override
             public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+
             }
 
-            @Override
+            //@Override
             public void onPageSelected(int position) {
-                mDotsView.selectDot(position);
+                changeinactivestate(position);
+                changeactivestate((position + 1) % 4);
+                changeactivestate((position + 2) % 4);
+                changeactivestate((position + 3) % 4);
             }
 
             @Override
             public void onPageScrollStateChanged(int state) {
+
             }
         });
-
-        final Point size = SCViewAnimationUtil.getDisplaySize(this);
-
-        View nameTag = findViewById(R.id.imageview_main_activity_name_tag);
-        SCViewAnimation nameTagAnimation = new SCViewAnimation(nameTag);
-        nameTagAnimation.addPageAnimation(new SCPositionAnimation(this, 0,0,-size.y/2));
-        mViewPager.addAnimation(nameTagAnimation);
-
-        View currentlyWork = findViewById(R.id.imageview_main_activity_currently_work);
-        SCViewAnimation currentlyWorkAnimation = new SCViewAnimation(currentlyWork);
-        currentlyWorkAnimation.addPageAnimation(new SCPositionAnimation(this, 0, -size.x, 0));
-        mViewPager.addAnimation(currentlyWorkAnimation);
-
-        View atSkex = findViewById(R.id.imageview_main_activity_at_skex);
-        SCViewAnimationUtil.prepareViewToGetSize(atSkex);
-        SCViewAnimation atSkexAnimation = new SCViewAnimation(atSkex);
-        atSkexAnimation.addPageAnimation(new SCPositionAnimation(getApplicationContext(), 0, 0, -( size.y - atSkex.getHeight() )));
-        atSkexAnimation.addPageAnimation(new SCPositionAnimation(getApplicationContext(), 1, -size.x, 0));
-        mViewPager.addAnimation(atSkexAnimation);
-
-        View mobileView = findViewById(R.id.imageview_main_activity_mobile);
-        SCViewAnimation mobileAnimation = new SCViewAnimation(mobileView);
-        mobileAnimation.startToPosition((int)(size.x*1.5), null);
-        mobileAnimation.addPageAnimation(new SCPositionAnimation(this, 0, -(int)(size.x*1.5), 0));
-        mobileAnimation.addPageAnimation(new SCPositionAnimation(this, 1, -(int)(size.x*1.5), 0));
-        mViewPager.addAnimation(mobileAnimation);
-
-        View djangoView = findViewById(R.id.imageview_main_activity_django_python);
-        SCViewAnimation djangoAnimation = new SCViewAnimation(djangoView);
-        djangoAnimation.startToPosition(null, -size.y);
-        djangoAnimation.addPageAnimation(new SCPositionAnimation(this, 0, 0, size.y));
-        djangoAnimation.addPageAnimation(new SCPositionAnimation(this, 1, 0, size.y));
-        mViewPager.addAnimation(djangoAnimation);
-
-        View commonlyView = findViewById(R.id.imageview_main_activity_commonly);
-        SCViewAnimation commonlyAnimation = new SCViewAnimation(commonlyView);
-        commonlyAnimation.startToPosition(size.x, null);
-        commonlyAnimation.addPageAnimation(new SCPositionAnimation(this, 0, -size.x, 0));
-        commonlyAnimation.addPageAnimation(new SCPositionAnimation(this, 1, -size.x, 0));
-        mViewPager.addAnimation(commonlyAnimation);
-
-        View butView = findViewById(R.id.imageview_main_activity_but);
-        SCViewAnimation butAnimation = new SCViewAnimation(butView);
-        butAnimation.startToPosition(size.x, null);
-        butAnimation.addPageAnimation(new SCPositionAnimation(this, 1, -size.x,0));
-        butAnimation.addPageAnimation(new SCPositionAnimation(this, 2, -size.x,0));
-        mViewPager.addAnimation(butAnimation);
-
-        View diplomeView = findViewById(R.id.imageview_main_activity_diploma);
-        SCViewAnimation diplomeAnimation = new SCViewAnimation(diplomeView);
-        diplomeAnimation.startToPosition((size.x *2), null);
-        diplomeAnimation.addPageAnimation(new SCPositionAnimation(this, 1, -size.x*2,0));
-        diplomeAnimation.addPageAnimation(new SCPositionAnimation(this, 2, -size.x*2 ,0));
-        mViewPager.addAnimation(diplomeAnimation);
-
-        View whyView = findViewById(R.id.imageview_main_activity_why);
-        SCViewAnimation whyAnimation = new SCViewAnimation(whyView);
-        whyAnimation.startToPosition(size.x, null);
-        whyAnimation.addPageAnimation(new SCPositionAnimation(this, 1, -size.x, 0));
-        whyAnimation.addPageAnimation(new SCPositionAnimation(this, 2, -size.x, 0));
-        mViewPager.addAnimation(whyAnimation);
-
-        View futureView = findViewById(R.id.imageview_main_future);
-        SCViewAnimation futureAnimation = new SCViewAnimation(futureView);
-        futureAnimation.startToPosition(null, -size.y);
-        futureAnimation.addPageAnimation(new SCPositionAnimation(this, 2, 0, size.y));
-        futureAnimation.addPageAnimation(new SCPositionAnimation(this, 3, -size.x, 0));
-        mViewPager.addAnimation(futureAnimation);
-
-        View arduinoView = findViewById(R.id.imageview_main_arduino);
-        SCViewAnimation arduinoAnimation = new SCViewAnimation(arduinoView);
-        arduinoAnimation.startToPosition(size.x * 2, null);
-        arduinoAnimation.addPageAnimation(new SCPositionAnimation(this, 2, - size.x *2, 0));
-        arduinoAnimation.addPageAnimation(new SCPositionAnimation(this, 3, - size.x, 0));
-        mViewPager.addAnimation(arduinoAnimation);
-
-        View raspberryView = findViewById(R.id.imageview_main_raspberry_pi);
-        SCViewAnimation raspberryAnimation = new SCViewAnimation(raspberryView);
-        raspberryAnimation.startToPosition(-size.x, null);
-        raspberryAnimation.addPageAnimation(new SCPositionAnimation(this, 2, size.x, 0));
-        raspberryAnimation.addPageAnimation(new SCPositionAnimation(this, 3, -size.x, 0));
-        mViewPager.addAnimation(raspberryAnimation);
-
-        View connectedDeviceView = findViewById(R.id.imageview_main_connected_device);
-        SCViewAnimation connectedDeviceAnimation = new SCViewAnimation(connectedDeviceView);
-        connectedDeviceAnimation.startToPosition((int)(size.x *1.5), null);
-        connectedDeviceAnimation.addPageAnimation(new SCPositionAnimation(this, 2, -(int) (size.x * 1.5), 0));
-        connectedDeviceAnimation.addPageAnimation(new SCPositionAnimation(this, 3,  - size.x, 0));
-        mViewPager.addAnimation(connectedDeviceAnimation);
-
-        View checkOutView = findViewById(R.id.imageview_main_check_out);
-        SCViewAnimation checkOutAnimation = new SCViewAnimation(checkOutView);
-        checkOutAnimation.startToPosition(size.x, null);
-        checkOutAnimation.addPageAnimation(new SCPositionAnimation(this, 3, -size.x, 0));
-        mViewPager.addAnimation(checkOutAnimation);
-
-        View linkedinView = findViewById(R.id.textview_main_linkedin_link);
-        SCViewAnimation linkedinAnimation = new SCViewAnimation(linkedinView);
-        linkedinAnimation.startToPosition(size.x, null);
-        linkedinAnimation.addPageAnimation(new SCPositionAnimation(this, 3, -size.x, 0));
-        mViewPager.addAnimation(linkedinAnimation);
-
-        View githubView = findViewById(R.id.textview_main_github_link);
-        SCViewAnimation githubAnimation = new SCViewAnimation(githubView);
-        githubAnimation.startToPosition(size.x, null);
-        githubAnimation.addPageAnimation(new SCPositionAnimation(this, 3, -size.x, 0));
-        mViewPager.addAnimation(githubAnimation);
 
 
         View guillotineMenu = LayoutInflater.from(this).inflate(R.layout.guillotine, null);
@@ -228,9 +184,104 @@ public class MainActivity extends AppCompatActivity {
                 .setStartDelay(RIPPLE_DURATION)
                 .setActionBarViewForAnimation(toolbar)
                 .setClosedOnStart(true)
-                .build();
+                .build()
+                .hideandshowfloatingButton(actionButton, button1, button2, button3, fabMenu);
 
 
+        thome = (TextView)findViewById(R.id.thome);
+        tevents = (TextView)findViewById(R.id.tevents);
+        tschedule = (TextView)findViewById(R.id.tschedule);
+        tupdates = (TextView)findViewById(R.id.tupdates);
+        teventsnow = (TextView)findViewById(R.id.teventsnow);
+        tsponsors = (TextView)findViewById(R.id.tsponsors);
+        tfavorites = (TextView)findViewById(R.id.tfavorites);
+        tcontacts = (TextView)findViewById(R.id.tcontacts);
+        tdevelopers = (TextView)findViewById(R.id.tdevelopers);
+
+        //resetstyle();
+
+    }
+
+
+    @Override
+    public void onBackPressed() {
+        if (mPager.getCurrentItem() == 0) {
+            // If the user is currently looking at the first step, allow the system to handle the
+            // Back button. This calls finish() on this activity and pops the back stack.
+            super.onBackPressed();
+        } else {
+            // Otherwise, select the previous step.
+            mPager.setCurrentItem(mPager.getCurrentItem() - 1);
+        }
+    }
+
+    /**
+     * A simple pager adapter that represents 5 ScreenSlidePageFragment objects, in
+     * sequence.
+     */
+    private class ScreenSlidePagerAdapter extends FragmentStatePagerAdapter {
+        public ScreenSlidePagerAdapter(FragmentManager fm) {
+            super(fm);
+        }
+        @Override
+        public Fragment getItem(int position) {
+            switch (position){
+                case 0 : return new ScreenSlideFragment1();
+                case 1:  return new ScreenSlideFragment2();
+                case 2: return new ScreenSlideFragment3();
+                case 3: return new  ScreenSlideFragment4();
+                default : return null;
+            }
+        }
+
+        @Override
+        public int getCount() {
+            return NUM_PAGES;
+        }
+    }
+
+
+
+
+    public void changeinactivestate(int pos){
+        switch(pos){
+            case 0:
+                ImageView imageView = (ImageView)findViewById(R.id.imageView4);
+                imageView.setImageResource(R.drawable.dot_selected_2x);
+                break;
+            case 1:
+                ImageView imageView1 = (ImageView)findViewById(R.id.imageView5);
+                imageView1.setImageResource(R.drawable.dot_selected_2x);
+                break;
+            case 2:
+                ImageView imageView2 = (ImageView)findViewById(R.id.imageView6);
+                imageView2.setImageResource(R.drawable.dot_selected_2x);
+                break;
+            case 3:
+                ImageView imageView3 = (ImageView)findViewById(R.id.imageView8);
+                imageView3.setImageResource(R.drawable.dot_selected_2x);
+                break;
+        }
+    }
+    public void changeactivestate(int pos){
+        switch(pos){
+            case 0:
+                ImageView imageView = (ImageView)findViewById(R.id.imageView4);
+                imageView.setImageResource(R.drawable.dot_2x);
+                break;
+            case 1:
+                ImageView imageView1 = (ImageView)findViewById(R.id.imageView5);
+                imageView1.setImageResource(R.drawable.dot_2x);
+                break;
+            case 2:
+                ImageView imageView2 = (ImageView)findViewById(R.id.imageView6);
+                imageView2.setImageResource(R.drawable.dot_2x);
+                break;
+            case 3:
+                ImageView imageView3 = (ImageView)findViewById(R.id.imageView8);
+                imageView3.setImageResource(R.drawable.dot_2x);
+                break;
+        }
     }
 
 
@@ -256,45 +307,85 @@ public class MainActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
     public void chome(View v){
+        //resetstyle();
+        //thome.setTextAppearance(R.style.TextView_GuillotineItem_Selected);
         Intent i =  new Intent(MainActivity.this,MainActivity.class);
         startActivity(i);
+        finish();
     }
 
     public void cevent(View v){
+        //resetstyle();
+        //tevents.setTextAppearance(R.style.TextView_GuillotineItem_Selected);
         Intent i =  new Intent(MainActivity.this,Eventlog.class);
         startActivity(i);
+        //finish();
     }
     public void cschedule(View v){
+        //resetstyle();
+        //tschedule.setTextAppearance(R.style.TextView_GuillotineItem_Selected);
         Intent i =  new Intent(MainActivity.this,Schedule.class);
         startActivity(i);
+        //finish();
     }
     public void ceventnow(View v){
+        //resetstyle();
+        //teventsnow.setTextAppearance(R.style.TextView_GuillotineItem_Selected);
         Intent i =  new Intent(MainActivity.this,EventNow.class);
         startActivity(i);
+        //finish();
     }
    public void cupdates(View v) {
+       //resetstyle();
+       //tupdates.setTextAppearance(R.style.TextView_GuillotineItem_Selected);
        Intent i = new Intent(MainActivity.this, Updates.class);
        startActivity(i);
+       //finish();
    }
 
     public void cfavorites(View v){
+        //resetstyle();
+        //tfavorites.setTextAppearance(R.style.TextView_GuillotineItem_Selected);
         Intent i =  new Intent(MainActivity.this,Favorites.class);
         startActivity(i);
+        //finish();
     }
    public   void csponsors(View v){
+       //resetstyle();
+       //tsponsors.setTextAppearance(R.style.TextView_GuillotineItem_Selected);
         Intent i =  new Intent(MainActivity.this,Sponsors.class);
         startActivity(i);
+       //finish();
    }
 
 
    public void ccontact(View v){
+       //resetstyle();
+       //tcontacts.setTextAppearance(R.style.TextView_GuillotineItem_Selected);
         Intent i =  new Intent(MainActivity.this,Contacts.class);
         startActivity(i);
+       //finish();
    }
 
     public void cdeveloper(View v){
+        //resetstyle();
+        //tdevelopers.setTextAppearance(R.style.TextView_GuillotineItem_Selected);
         Intent i =  new Intent(MainActivity.this,Description.class);
         startActivity(i);
+        //finish();
     }
+
+   /* public void resetstyle(){
+        thome.setTextAppearance(R.style.TextView_GuillotineItem);
+        tevents.setTextAppearance(R.style.TextView_GuillotineItem);
+        tschedule.setTextAppearance(R.style.TextView_GuillotineItem);
+        tupdates.setTextAppearance(R.style.TextView_GuillotineItem);
+        teventsnow.setTextAppearance(R.style.TextView_GuillotineItem);
+        tfavorites.setTextAppearance(R.style.TextView_GuillotineItem);
+        tsponsors.setTextAppearance(R.style.TextView_GuillotineItem);
+        tcontacts.setTextAppearance(R.style.TextView_GuillotineItem);
+        tdevelopers.setTextAppearance(R.style.TextView_GuillotineItem);
+
+    }*/
 
 }

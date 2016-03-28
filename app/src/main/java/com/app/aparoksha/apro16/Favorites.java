@@ -3,6 +3,7 @@ package com.app.aparoksha.apro16;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
@@ -19,11 +20,16 @@ import DBManager.DBFavs;
 public class Favorites extends AppCompatActivity implements AdapterView.OnItemClickListener {
 
     private ListView mList;
+    private Toolbar toolbar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.favorites);
+        toolbar = (Toolbar) findViewById(R.id.app_bar);
+
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         mList = (ListView)findViewById(R.id.listFav);
 
@@ -90,5 +96,10 @@ public class Favorites extends AppCompatActivity implements AdapterView.OnItemCl
         Intent i = new Intent(intentToOpen);
         i.putExtra("INTENT", intentToOpen);
         startActivity(i);
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
     }
 }

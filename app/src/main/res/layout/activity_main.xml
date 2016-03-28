@@ -1,222 +1,125 @@
 <?xml version="1.0" encoding="utf-8"?>
-    <FrameLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        android:id="@+id/root"
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/root"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@android:color/transparent"
+    android:orientation="vertical">
+    
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@android:color/transparent"
-        android:orientation="vertical">
-
-        <RelativeLayout
+        android:layout_height="match_parent"
+        android:background="@drawable/background">
+        <android.support.v4.view.ViewPager
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            android:id="@+id/pager"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:clipChildren="true"
-            android:clipToPadding="true"
-            >
-
-            <com.dev.sacot41.scviewpager.SCViewPager
-                android:id="@+id/viewpager_main_activity"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:background="@drawable/layerlist">
-            </com.dev.sacot41.scviewpager.SCViewPager>
-
-            <com.dev.sacot41.scviewpager.DotsView
-                android:orientation="horizontal"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentBottom="true"
-                android:layout_centerHorizontal="true"
-                android:layout_marginBottom="10dp"
-                android:id="@+id/dotsview_main"
-                />
-
-            <ImageView
-                android:id="@+id/imageview_main_activity_name_tag"
-                android:layout_width="250dp"
-                android:layout_height="250dp"
-                android:layout_marginTop="80dp"
-                android:paddingRight="30dp"
-                android:layout_alignParentTop="true"
-                android:layout_centerHorizontal="true"
-                android:src="@drawable/home_pic1"
-                />
-
-            <ImageView
-                android:id="@+id/imageview_main_activity_currently_work"
-                android:layout_width="270dp"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="310dp"
-                android:layout_centerHorizontal="true"
-                android:src="@drawable/home_pic2"/>
-
-            <ImageView
-                android:id="@+id/imageview_main_activity_at_skex"
-                android:layout_width="150dp"
-                android:layout_height="60dp"
-                android:layout_marginTop="420dp"
-                android:layout_centerHorizontal="true"
-                android:src="@drawable/home_pic3"/>
-
-            <ImageView
-                android:id="@+id/imageview_main_activity_commonly"
-                android:layout_width="150dp"
-                android:layout_height="75dp"
-                android:layout_marginTop="70dp"
-                android:layout_centerHorizontal="true"
-                android:src="@drawable/about_pic1"/>
-
-            <ImageView
-                android:id="@+id/imageview_main_activity_django_python"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:padding="15dp"
-                android:layout_marginTop="320dp"
-                android:layout_centerHorizontal="true"
-                android:src="@drawable/about_pic3"/>
-
-            <ImageView
-                android:id="@+id/imageview_main_activity_mobile"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="0dp"
-                android:padding="15dp"
-                android:layout_centerHorizontal="true"
-                android:src="@drawable/about_pic2"/>
-
-            <ImageView
-                android:id="@+id/imageview_main_activity_but"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerHorizontal="true"
-                android:src="@drawable/vr_pic1"/>
-
-            <ImageView
-                android:id="@+id/imageview_main_activity_diploma"
-                android:layout_width="320dp"
-                android:layout_height="200dp"
-                android:layout_marginTop="100dp"
-                android:layout_marginLeft="50dp"
-                android:src="@drawable/vr_pic2"/>
-
-            <ImageView
-                android:id="@+id/imageview_main_activity_why"
-                android:layout_width="200dp"
-                android:layout_height="250dp"
-                android:layout_marginBottom="50dp"
-                android:layout_alignParentBottom="true"
-                android:layout_marginRight="50dp"
-                android:src="@drawable/vr_pic3"/>
-
-            <ImageView
-                android:id="@+id/imageview_main_future"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="30dp"
-                android:padding="10dp"
-                android:layout_centerHorizontal="true"
-                android:src="@drawable/hack_pic1"/>
-
-            <ImageView
-                android:id="@+id/imageview_main_arduino"
-                android:layout_width="200dp"
-                android:layout_height="200dp"
-                android:layout_below="@id/imageview_main_future"
-                android:layout_centerHorizontal="true"
-                android:src="@drawable/hack_pic2"/>
-
-            <ImageView
-                android:id="@+id/imageview_main_raspberry_pi"
-                android:layout_width="150dp"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/imageview_main_arduino"
-                android:layout_centerHorizontal="true"
-                android:layout_marginTop="5dp"
-                android:src="@drawable/hack_pic3"/>
-
-            <ImageView
-                android:id="@+id/imageview_main_connected_device"
-                android:layout_width="250dp"
-                android:layout_height="150dp"
-                android:layout_alignParentBottom="true"
-                android:layout_marginBottom="2dp"
-                android:layout_centerHorizontal="true"
-                android:src="@drawable/hack_pic4"/>
-
-            <ImageView
-                android:id="@+id/imageview_main_check_out"
-                android:layout_width="350dp"
-                android:layout_height="250dp"
-                android:paddingLeft="20dp"
-                android:layout_centerHorizontal="true"
-                android:layout_marginTop="30dp"
-                android:src="@drawable/formore"/>
-
-            <TextView
-                android:id="@+id/textview_main_github_link"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:paddingLeft="20dp"
-                android:paddingRight="20dp"
-                android:textColor="@color/theme_700"
-                android:layout_centerHorizontal="true"
-                android:layout_below="@id/imageview_main_check_out"
-                android:autoLink="web"
-                android:textAppearance="@android:style/TextAppearance.Large"
-                android:text="https://aparoksha.iiita.ac.in"
-                android:gravity="center"/>
-
-            <TextView
-                android:id="@+id/textview_main_linkedin_link"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:paddingLeft="20dp"
-                android:paddingRight="20dp"
-                android:textColor="@color/theme_700"
-                android:layout_centerHorizontal="true"
-                android:layout_marginTop="15dp"
-                android:layout_below="@id/textview_main_github_link"
-                android:autoLink="web"
-                android:textAppearance="@android:style/TextAppearance.Large"
-                android:text="https://www.facebook.com/aparoksha"
-                android:gravity="center"/>
+            android:layout_height="match_parent" />
         </RelativeLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:orientation="vertical"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal|bottom"
+        >
         <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/rlayout"
-            android:paddingLeft="1dp"
-            android:paddingRight="1dp"
-            android:paddingTop="1dp"
-            android:background="@drawable/shadow">
-            <View
-                android:layout_below="@+id/toolbar"
-                android:layout_gravity="top"
-                android:layout_width="match_parent"
-                android:layout_height="5dp"
-                android:background="@drawable/shadow"
-                />
+            android:layout_width="fill_parent"
+            android:layout_height="120dp"
+            >
+            <ImageView
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:id="@+id/imageView2"
+                android:padding="0dp"
+                android:layout_marginBottom="-43dp"
+                android:src="@drawable/welcome_bottom_left"
+                android:cropToPadding="true"/>
 
-            <android.support.v7.widget.Toolbar
-                android:id="@+id/toolbar"
-                app:contentInsetStart="0dp"
-                style="@style/Toolbar"
-                android:layout_height="?attr/actionBarSize"
-               >
+            <ImageView
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:id="@+id/imageView3"
+                android:layout_marginBottom="-28dp"
+                android:padding="0dp"
+                android:src="@drawable/welcome_botton_right" />
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="0dp"
+                android:layout_marginTop="40dp"
+                android:layout_marginLeft="30dp"
+                android:id="@+id/linearLayout"
+                android:orientation="horizontal">
 
                 <ImageView
-                    android:id="@+id/content_hamburger"
-                    style="@style/ImageView.Hamburger"
-                    android:src="@drawable/ic_menu_90" />
+                    android:layout_width="10dp"
+                    android:layout_height="10dp"
+                    android:id="@+id/imageView4"
+                    android:layout_marginRight="15dp"
+                    android:src="@drawable/dot_selected_2x" />
+                <ImageView
+                    android:layout_width="10dp"
+                    android:layout_height="10dp"
+                    android:layout_marginRight="15dp"
+                    android:id="@+id/imageView5"
+                    android:src="@drawable/dot_2x"
+                    />
+                <ImageView
+                    android:layout_width="10dp"
+                    android:layout_height="10dp"
+                    android:layout_marginRight="15dp"
+                    android:id="@+id/imageView6"
+                    android:src="@drawable/dot_2x" />
+                <ImageView
+                    android:layout_width="10dp"
+                    android:layout_height="10dp"
+                    android:layout_marginRight="15dp"
+                    android:id="@+id/imageView8"
+                    android:src="@drawable/dot_2x"
+                    />
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:text="Aproksha"
-                    android:textSize="@dimen/guillotine_item_text_size" />
-            </android.support.v7.widget.Toolbar>
+            </LinearLayout>
+
         </RelativeLayout>
-    </FrameLayout>
+    </LinearLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/rlayout"
+        android:paddingLeft="1dp"
+        android:paddingRight="1dp"
+        android:paddingTop="1dp"
+        android:background="@drawable/shadow">
+        <View
+            android:layout_below="@+id/toolbar"
+            android:layout_gravity="top"
+            android:layout_width="match_parent"
+            android:layout_height="5dp"
+            android:background="@drawable/shadow"
+            />
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            app:contentInsetStart="0dp"
+            style="@style/Toolbar"
+            android:layout_height="?attr/actionBarSize"
+            >
+
+            <ImageView
+                android:id="@+id/content_hamburger"
+                style="@style/ImageView.Hamburger"
+                android:src="@drawable/ic_menu_90" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:id="@+id/main_actname"
+                android:textColor="@color/white"
+                android:textSize="@dimen/guillotine_item_text_size" />
+        </android.support.v7.widget.Toolbar>
+    </RelativeLayout>
+</FrameLayout>
 

@@ -50,7 +50,7 @@ public class Description extends AppCompatActivity implements View.OnClickListen
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         collapsingToolbar = (CollapsingToolbarLayout) findViewById(R.id.collapsing_toolbar);
-        collapsingToolbar.setTitle("event name");
+        collapsingToolbar.setTitle("Hack in the North");
 
         desc = (LinearLayout)findViewById(R.id.desc);
         rules = (LinearLayout)findViewById(R.id.rules);
@@ -71,7 +71,7 @@ public class Description extends AppCompatActivity implements View.OnClickListen
         borg.setOnClickListener(this);
         bfav.setOnClickListener(this);
 
-        num1 = (TextView) findViewById(R.id.number1);
+        num1 = (TextView) findViewById(R.id.num1);
         org1 = (LinearLayout) findViewById(R.id.organiser1);
         org1.setOnClickListener(this);
         num2 = (TextView) findViewById(R.id.number2);
@@ -88,12 +88,12 @@ public class Description extends AppCompatActivity implements View.OnClickListen
         if (getFav().equals("1")) {
             //fav is set
 
-            bfav.setImageResource(R.drawable.ic_profile);
+            bfav.setImageResource(R.drawable.book2);
 
         } else {
             //fav is not set
 
-            bfav.setImageResource(R.drawable.bookmark);
+            bfav.setImageResource(R.drawable.book1);
 
         }
 
@@ -133,26 +133,26 @@ public class Description extends AppCompatActivity implements View.OnClickListen
         {
             case R.id.bdesc :
                 desc.setVisibility(View.VISIBLE);
-                rules.setVisibility(View.INVISIBLE);
-                prize.setVisibility(View.INVISIBLE);
-                org.setVisibility(View.INVISIBLE);
+                rules.setVisibility(View.GONE);
+                prize.setVisibility(View.GONE);
+                org.setVisibility(View.GONE);
                 break;
             case R.id.brules :
-                desc.setVisibility(View.INVISIBLE);
+                desc.setVisibility(View.GONE);
                 rules.setVisibility(View.VISIBLE);
-                prize.setVisibility(View.INVISIBLE);
-                org.setVisibility(View.INVISIBLE);
+                prize.setVisibility(View.GONE);
+                org.setVisibility(View.GONE);
                 break;
             case R.id.bprize :
-                desc.setVisibility(View.INVISIBLE);
-                rules.setVisibility(View.INVISIBLE);
+                desc.setVisibility(View.GONE);
+                rules.setVisibility(View.GONE);
                 prize.setVisibility(View.VISIBLE);
-                org.setVisibility(View.INVISIBLE);
+                org.setVisibility(View.GONE);
                 break;
             case R.id.borg :
-                desc.setVisibility(View.INVISIBLE);
-                rules.setVisibility(View.INVISIBLE);
-                prize.setVisibility(View.INVISIBLE);
+                desc.setVisibility(View.GONE);
+                rules.setVisibility(View.GONE);
+                prize.setVisibility(View.GONE);
                 org.setVisibility(View.VISIBLE);
                 break;
             case R.id.bfav :
@@ -163,14 +163,14 @@ public class Description extends AppCompatActivity implements View.OnClickListen
                     entryDel.openandwrite();
                     entryDel.deleteTitleGivenName(EVENT_NAME);
                     entryDel.close();
-                    bfav.setImageResource(R.drawable.bookmark);
+                    bfav.setImageResource(R.drawable.book1);
                     Toast.makeText(this, "Removed from Favorites", Toast.LENGTH_SHORT).show();
                     //delete db entry
                 }
                 else {
                     //fav is not set
                     setFav("1");
-                    bfav.setImageResource(R.drawable.ic_profile);
+                    bfav.setImageResource(R.drawable.book2);
                     DBFavs entry = new DBFavs(this);
                     entry.openandwrite();
                     entry.createEntry(EVENT_NAME, intentNaam);
@@ -184,7 +184,7 @@ public class Description extends AppCompatActivity implements View.OnClickListen
             case R.id.organiser1:
                 String number1 = num1.getText().toString().trim();
                 Intent callIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("tel:+91"+number1));
-                startActivity(callIntent);
+                //startActivity(callIntent);
                  /* Intent callIntent2 = new Intent(Intent.ACTION_CALL);
                 callIntent2.setData(Uri.parse("tel:+91" + number1));*/
                 if (!hasPermission("android.permission.CALL_PHONE")) {
@@ -193,6 +193,19 @@ public class Description extends AppCompatActivity implements View.OnClickListen
                 } else {
                     startActivity(callIntent);
                 }
+
+               /* String to = eid1.getText().toString();
+                String subject="Regarding " + EVENT_NAME +"!";
+
+
+                Intent email1 = new Intent(Intent.ACTION_SEND);
+                email1.putExtra(Intent.EXTRA_EMAIL, to);
+                email1.putExtra(Intent.EXTRA_SUBJECT, subject);
+
+                //need this to prompts email client only
+                email1.setType("text/plain");
+
+                startActivity(Intent.createChooser(email1, "Choose an Email client :"));*/
                 break;
             case R.id.organiser2:
                 String number2 = num2.getText().toString().trim();
@@ -237,4 +250,9 @@ public class Description extends AppCompatActivity implements View.OnClickListen
     }
     //end
 
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+    }
 }

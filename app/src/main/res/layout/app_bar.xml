@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.Toolbar xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background = "@color/blackminus"
+    android:fitsSystemWindows = "true"
+    app:theme = "@style/myCustomToolbarTheme"
+    app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+    >
+    <RelativeLayout
+        android:layout_width = "match_parent"
+        android:layout_height = "match_parent">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height = "wrap_content"
+            android:id="@+id/activity_name"
+            android:textColor="@android:color/white"
+            android:textSize="30sp"
+
+            android:textStyle="bold"
+            />
+        <EditText
+            android:layout_width="200dp"
+            android:textColor="@android:color/white"
+            android:textColorHint="@android:color/white"
+            android:layout_height="wrap_content"
+            android:id="@+id/searchContent"
+            android:hint="Search"
+
+            android:visibility="gone"
+            android:layout_marginLeft = "3dp"
+            android:focusable="true"
+            />
+        <ImageView
+            android:id="@+id/searchIcon"
+            android:layout_width = "wrap_content"
+            android:layout_height = "wrap_content"
+            android:src="@drawable/ic_settings"
+            android:layout_marginRight="3dp"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            android:visibility="gone"/>
+        <ImageView
+            android:id="@+id/searchClose"
+            android:layout_width = "wrap_content"
+            android:layout_height = "wrap_content"
+            android:src="@drawable/ic_settings"
+            android:layout_marginRight="3dp"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            android:visibility="gone"/>
+    </RelativeLayout>
+
+</android.support.v7.widget.Toolbar>

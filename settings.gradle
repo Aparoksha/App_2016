@@ -1,1 +1,1 @@
-include ':app', ':mylibrary',':shimmer-android',':library'
+include ':app', ':mylibrary',':shimmer-android'

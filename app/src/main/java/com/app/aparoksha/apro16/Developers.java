@@ -12,4 +12,9 @@ public class Developers extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.developers);
     }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+    }
 }

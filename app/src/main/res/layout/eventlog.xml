@@ -1,156 +1,218 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="fill_parent"
-    android:layout_height="fill_parent">
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    android:padding="5dp"
+    tools:context="com.app.aparoksha.apro16.Eventlog"
+    android:orientation="vertical">
 
+    <include android:id="@+id/app_bar"
+        layout="@layout/app_bar"/>
 
-    <LinearLayout
+    <View
+        android:layout_below="@+id/app_bar"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:layout_height="5dp"
+        android:id="@+id/shadow"
+        android:background="@drawable/shadow" />
+
+    <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:paddingLeft="9dp"
+            android:paddingRight="2dp">
 
 
-        <ViewFlipper
-            android:id="@+id/viewflipper"
-            android:layout_width="fill_parent"
-            android:layout_height="200dp"
-            android:flipInterval="2000">
+            <HorizontalScrollView
+                android:layout_width="match_parent"
+                android:scrollbars="none"
+                android:layout_height="match_parent">
 
-            <ImageView
-                android:layout_width="fill_parent"
-                android:layout_height="fill_parent"
-                android:src="@drawable/first" />
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
 
-            <ImageView
-                android:layout_width="fill_parent"
-                android:layout_height="fill_parent"
-                android:src="@drawable/second" />
+                    <Button
+                        android:id="@+id/button1"
+                        android:layout_width="120dp"
+                        android:layout_height="32dp"
+                        android:layout_marginLeft="6dp"
+                        android:layout_marginTop="15dp"
+                        android:background="@drawable/roundedbutton"
+                        android:padding="4dp"
+                        android:text="Coding"
+                        android:textColor="#ffffff" />
 
-            <ImageView
-                android:layout_width="fill_parent"
-                android:layout_height="fill_parent"
-                android:src="@drawable/third" />
+                    <Button
+                        android:id="@+id/button2"
+                        android:layout_width="120dp"
+                        android:layout_height="32dp"
+                        android:layout_marginLeft="6dp"
+                        android:layout_marginTop="15dp"
+                        android:background="@drawable/roundedbutton"
+                        android:padding="4dp"
+                        android:text="Development"
+                        android:textColor="#ffffff" />
 
-            <ImageView
-                android:layout_width="fill_parent"
-                android:layout_height="fill_parent"
-                android:src="@drawable/fourth" />
+                    <Button
+                        android:id="@+id/button3"
+                        android:layout_width="120dp"
+                        android:layout_height="32dp"
+                        android:layout_marginLeft="6dp"
+                        android:layout_marginTop="15dp"
+                        android:background="@drawable/roundedbutton"
+                        android:padding="4dp"
+                        android:text="Electronics"
+                        android:textColor="#ffffff" />
+                    <Button
+                        android:id="@+id/button4"
+                        android:layout_width="120dp"
+                        android:layout_height="32dp"
+                        android:layout_marginLeft="6dp"
+                        android:layout_marginTop="15dp"
+                        android:background="@drawable/roundedbutton"
+                        android:padding="4dp"
+                        android:text="Quiz"
+                        android:textColor="#ffffff" />
+                    <Button
+                        android:id="@+id/button5"
+                        android:layout_width="120dp"
+                        android:layout_height="32dp"
+                        android:layout_marginLeft="6dp"
+                        android:layout_marginTop="15dp"
+                        android:background="@drawable/roundedbutton"
+                        android:padding="4dp"
+                        android:text="Gaming"
+                        android:textColor="#ffffff" />
+                    <Button
+                        android:id="@+id/button6"
+                        android:layout_width="120dp"
+                        android:layout_height="32dp"
+                        android:layout_marginLeft="6dp"
+                        android:layout_marginTop="15dp"
+                        android:background="@drawable/roundedbutton"
+                        android:padding="4dp"
+                        android:text="Misc"
+                        android:textColor="#ffffff" />
 
-            <ImageView
+                </LinearLayout>
+            </HorizontalScrollView>
+
+            <TextView
+                android:id="@+id/textView0"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@mipmap/ic_launcher" />
-        </ViewFlipper>
+                android:layout_marginTop="25dp"
+                android:text="Signature Events"
+                android:textColor="@color/white"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:textSize="25dp" />
+            <TextView
+                android:id="@+id/textView01"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:text="Huge prizes + opportunities."
+                android:textColor="@color/red"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:textSize="18dp" />
 
 
-        <HorizontalScrollView
-            android:layout_width="match_parent"
-            android:scrollbars="none"
-            android:layout_height="match_parent">
-
-            <LinearLayout
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/signatureEventList"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="horizontal">
+                android:layout_height="220dp"
+                android:minHeight="300dp"
+                android:layout_marginTop="5dp"/>
 
-                <Button
-                    android:id="@+id/button1"
-                    android:layout_width="120dp"
-                    android:layout_height="32dp"
-                    android:layout_marginLeft="6dp"
-                    android:layout_marginTop="15dp"
-                    android:background="@drawable/roundedbutton"
-                    android:padding="4dp"
-                    android:text="New Button"
-                    android:textColor="#ffffff" />
+            <TextView
+                android:id="@+id/textView1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="25dp"
+                android:text="Formal Events"
+                android:textColor="@color/white"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:textSize="25dp" />
+            <TextView
+                android:id="@+id/textView11"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:text="Dedicated events to participate"
+                android:textColor="@color/red"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:textSize="18dp" />
 
-                <Button
-                    android:id="@+id/button2"
-                    android:layout_width="120dp"
-                    android:layout_height="32dp"
-                    android:layout_marginLeft="6dp"
-                    android:layout_marginTop="15dp"
-                    android:background="@drawable/roundedbutton"
-                    android:padding="4dp"
-                    android:text="New Button"
-                    android:textColor="#ffffff" />
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/formalEventList"
+                android:layout_width="match_parent"
+                android:layout_height="220dp"
+                android:minHeight="300dp"
+                android:layout_marginTop="5dp"/>
 
-                <Button
-                    android:id="@+id/button3"
-                    android:layout_width="120dp"
-                    android:layout_height="32dp"
-                    android:layout_marginLeft="6dp"
-                    android:layout_marginTop="15dp"
-                    android:background="@drawable/roundedbutton"
-                    android:padding="4dp"
-                    android:text="New Button"
-                    android:textColor="#ffffff" />
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="25dp"
+                android:text="Informal Events"
+                android:textColor="@color/white"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:textSize="25dp" />
+            <TextView
+                android:id="@+id/textView21"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:text="Are you waiting for some fun?"
+                android:textColor="@color/red"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:textSize="18dp" />
 
-            </LinearLayout>
-        </HorizontalScrollView>
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/informalEventList"
+                android:layout_width="match_parent"
+                android:layout_height="220dp"
+                android:minHeight="300dp"
+                android:layout_marginTop="5dp"/>
 
-        <TextView
-            android:id="@+id/textView0"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:text="Signature"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:textSize="21dp" />
+            <TextView
+                android:id="@+id/textView3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="25dp"
+                android:text="Online Events"
+                android:textColor="@color/white"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:textSize="25dp" />
+            <TextView
+                android:id="@+id/textView31"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:text="Anyone! Anywhere! Anytime!"
+                android:textColor="@color/red"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:textSize="18dp" />
 
-        <android.support.v7.widget.RecyclerView
-            android:id="@+id/signatureEventList"
-            android:layout_width="match_parent"
-            android:layout_height="220dp"
-            android:minHeight="300dp" />
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/onlineEventList"
+                android:layout_width="match_parent"
+                android:layout_height="220dp"
+                android:minHeight="300dp"
+                android:layout_marginTop="5dp"/>
 
-        <TextView
-            android:id="@+id/textView1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:text="Formal"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:textSize="21dp" />
+        </LinearLayout>
 
-        <android.support.v7.widget.RecyclerView
-            android:id="@+id/formalEventList"
-            android:layout_width="match_parent"
-            android:layout_height="220dp"
-            android:minHeight="300dp" />
+    </ScrollView>
 
-        <TextView
-            android:id="@+id/textView2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:text="Informal"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:textSize="21dp" />
-
-        <android.support.v7.widget.RecyclerView
-            android:id="@+id/informalEventList"
-            android:layout_width="match_parent"
-            android:layout_height="220dp"
-            android:minHeight="300dp" />
-
-        <TextView
-            android:id="@+id/textView3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:text="Online"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:textSize="21dp" />
-
-        <android.support.v7.widget.RecyclerView
-            android:id="@+id/onlineEventList"
-            android:layout_width="match_parent"
-            android:layout_height="220dp"
-            android:minHeight="300dp" />
-
-    </LinearLayout>
-
-</ScrollView>
-
+</LinearLayout>

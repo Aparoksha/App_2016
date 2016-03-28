@@ -5,11 +5,11 @@
 
 
     <color name="primaryColor">#ff000000</color>
-    <color name="primaryColorDark">#ffff0000</color>
+    <color name="primaryColorDark">#F44336</color>
     <color name="accentColor">#ff0000ff</color>
 
     <color name="black">#ff000000</color>
-    <color name="red">#ffff0000</color>
+    <color name="red">#F44336</color>
     <color name="redplus">#FF710000</color>
     <color name="blackminus">#282828</color>
     <color name="blue">#ff0000ff</color>

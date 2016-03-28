@@ -1,7 +1,9 @@
 package com.app.aparoksha.apro16;
 
-import android.app.Activity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.GridView;
@@ -10,7 +12,8 @@ import android.widget.Toast;
 /**
  * Created by Satyam Poddar on 30-Jan-16.
  */
-public class Schedule extends Activity {
+public class Schedule extends AppCompatActivity {
+    private Toolbar toolbar;
     GridView grid;
     String[] text = {
             "Prelims",
@@ -31,6 +34,9 @@ public class Schedule extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.schedule);
+        toolbar = (Toolbar) findViewById(R.id.app_bar);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         CustomGrid adapter = new CustomGrid(Schedule.this, text, imageId);
         grid=(GridView)findViewById(R.id.gridSchedule);
@@ -46,5 +52,17 @@ public class Schedule extends Activity {
         });
 
     }
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+        if (id == android.R.id.home) {
+            finish();
+        }
+        return super.onOptionsItemSelected(item);
+    }
 
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+    }
 }

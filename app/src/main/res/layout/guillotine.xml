@@ -51,6 +51,7 @@
 
                 <TextView
                     style="@style/TextView.GuillotineItem"
+                    android:id="@+id/thome"
                     android:text="@string/home" />
             </LinearLayout>
 
@@ -68,6 +69,7 @@
 
         <TextView
             style="@style/TextView.GuillotineItem"
+            android:id="@+id/tevents"
             android:text="@string/event" />
     </LinearLayout>
 
@@ -84,7 +86,8 @@
             android:src="@drawable/ic_schedule" />
 
         <TextView
-            style="@style/TextView.GuillotineItem.Selected"
+            style="@style/TextView.GuillotineItem"
+            android:id="@+id/tschedule"
             android:text="@string/schedule" />
     </LinearLayout>
 
@@ -102,6 +105,7 @@
 
         <TextView
             style="@style/TextView.GuillotineItem"
+            android:id="@+id/tupdates"
             android:text="@string/updates" />
     </LinearLayout>
 
@@ -119,6 +123,7 @@
 
         <TextView
             style="@style/TextView.GuillotineItem"
+            android:id="@+id/teventsnow"
             android:text="@string/eventnow" />
     </LinearLayout>
 
@@ -136,6 +141,7 @@
 
         <TextView
             style="@style/TextView.GuillotineItem"
+            android:id="@+id/tfavorites"
             android:text="@string/favorites" />
     </LinearLayout>
 
@@ -153,6 +159,7 @@
 
                 <TextView
                     style="@style/TextView.GuillotineItem"
+                    android:id="@+id/tsponsors"
                     android:text="@string/sponsors" />
     </LinearLayout>
 
@@ -170,6 +177,7 @@
 
         <TextView
             style="@style/TextView.GuillotineItem"
+            android:id="@+id/tcontacts"
             android:text="@string/contacts" />
     </LinearLayout>
 
@@ -187,6 +195,7 @@
 
         <TextView
             style="@style/TextView.GuillotineItem"
+            android:id="@+id/tdevelopers"
             android:text="@string/developers" />
     </LinearLayout>
 

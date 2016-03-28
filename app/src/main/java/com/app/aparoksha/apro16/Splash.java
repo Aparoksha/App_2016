@@ -21,7 +21,7 @@ public class Splash extends Activity {
         mShimmerViewContainer = (ShimmerFrameLayout) findViewById(R.id.shimmer_view_container);
 
 
-        mShimmerViewContainer.setDuration(3000);
+        mShimmerViewContainer.setDuration(2000);
         mShimmerViewContainer.setRepeatMode(ObjectAnimator.REVERSE);
         mShimmerViewContainer.startShimmerAnimation();
         mSplashThread =  new Thread(){
@@ -30,7 +30,7 @@ public class Splash extends Activity {
                 try {
                     synchronized(this){
                         // Wait given period of time or exit on touch
-                        wait(6000);
+                        wait(4000);
                     }
                 }
                 catch(InterruptedException ex){
@@ -57,7 +57,7 @@ public class Splash extends Activity {
                 // close this activity
                 finish();
             }
-        }, 6000);
+        }, 4000);
 
     }
     @Override

@@ -3,18 +3,26 @@ package com.yalantis.guillotine.animation;
 import android.animation.Animator;
 import android.animation.ObjectAnimator;
 import android.animation.TimeInterpolator;
+import android.content.Intent;
+import android.graphics.Color;
 import android.os.Build;
+import android.util.Log;
 import android.view.View;
 import android.view.ViewTreeObserver;
 
+import com.oguzdev.circularfloatingactionmenu.library.FloatingActionMenu;
 import com.yalantis.guillotine.interfaces.GuillotineListener;
 import com.yalantis.guillotine.util.ActionBarInterpolator;
 import com.yalantis.guillotine.util.GuillotineInterpolator;
+
+import java.util.logging.Handler;
 
 /**
  * Created by Dmytro Denysenko on 5/6/15.
  */
 public class GuillotineAnimation {
+    public View actionButton,button1,button2,button3;
+    public FloatingActionMenu fabmenu;
     private static final String ROTATION = "rotation";
     private static final float GUILLOTINE_CLOSED_ANGLE = -90f;
     private static final float GUILLOTINE_OPENED_ANGLE = 0f;
@@ -53,7 +61,13 @@ public class GuillotineAnimation {
         //TODO handle right-to-left layouts
         //TODO handle landscape orientation
     }
-
+    public void hideandshowfloatingButton(View actionButton,View button1,View button2,View button3,FloatingActionMenu fabmenu){
+        this.actionButton = actionButton;
+        this.button1 = button1;
+        this.button2 = button2;
+        this.button3 = button3;
+        this.fabmenu = fabmenu;
+    }
     public void open() {
         if (!isOpening) {
             mOpeningAnimation.start();
@@ -86,6 +100,24 @@ public class GuillotineAnimation {
             @Override
             public void onClick(View v) {
                 open();
+                new android.os.Handler().postDelayed(new Runnable() {
+
+            /*
+             * Showing splash screen with a timer. This will be useful when you
+             * want to show case your app logo / company
+             */
+
+                    @Override
+                    public void run() {
+                        actionButton.setVisibility(View.GONE);
+                        button1.setVisibility(View.GONE);
+                        button2.setVisibility(View.GONE);
+                        button3.setVisibility(View.GONE);
+                        fabmenu.close(true);
+                        // This method will be executed once the timer is over
+                        // Start your app main activity
+                    }
+                }, 500);
             }
         });
     }
@@ -108,6 +140,24 @@ public class GuillotineAnimation {
             @Override
             public void onClick(View v) {
                 close();
+                new android.os.Handler().postDelayed(new Runnable() {
+
+            /*
+             * Showing splash screen with a timer. This will be useful when you
+             * want to show case your app logo / company
+             */
+
+                    @Override
+                    public void run() {
+                        actionButton.setVisibility(View.VISIBLE);
+                        button1.setVisibility(View.VISIBLE);
+                        button2.setVisibility(View.VISIBLE);
+                        button3.setVisibility(View.VISIBLE);
+                        // This method will be executed once the timer is over
+                        // Start your app main activity
+                    }
+                }, 300);
+
             }
         });
     }

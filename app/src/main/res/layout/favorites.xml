@@ -1,9 +1,20 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
     android:layout_height="match_parent"
 
     tools:context="com.app.aparoksha.apro16.Favorites">
+    <include android:id="@+id/app_bar"
+        layout="@layout/app_bar"
 
+        />
+
+    <View
+        android:layout_below="@+id/app_bar"
+        android:layout_width="match_parent"
+        android:layout_height="5dp"
+        android:id="@+id/shadow"
+        android:background="@drawable/shadow" />
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"

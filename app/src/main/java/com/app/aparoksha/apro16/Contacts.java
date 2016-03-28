@@ -12,4 +12,9 @@ public class Contacts extends Activity{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.contacts);
     }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+    }
 }

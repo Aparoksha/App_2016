@@ -43,6 +43,11 @@
     </style>
 
     <style name="TextView.GuillotineItem.Selected">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginLeft">@dimen/guillotine_small_margin</item>
+        <item name="android:textSize">@dimen/guillotine_item_text_size</item>
+        <item name="android:layout_gravity">center_vertical</item>
         <item name="android:textColor">@color/red</item>
     </style>
 
@@ -75,11 +80,12 @@
     </style>
 
     <style name="thin.white" parent="@android:style/TextAppearance">
-        <item name="android:fontFamily">sans-serif-thin</item>
         <item name="android:textColor">@color/white</item>
     </style>
     <style name="thin.white.large" parent="thin.white">
         <item name="android:textSize">24sp</item>
     </style>
-
+    <style name="myCustomToolbarTheme" parent = "ThemeOverlay.AppCompat.Dark">
+        <item name="android:textColorPrimary">@color/red</item>
+    </style>
 </resources>

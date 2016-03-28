@@ -4,7 +4,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    <android.support.design.widget.CoordinatorLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -29,7 +30,7 @@
                     android:id="@+id/header"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:background="@drawable/b1"
+                    android:background="@drawable/apa"
                     android:fitsSystemWindows="true"
                     android:scaleType="centerCrop"
                     app:layout_collapseMode="parallax" />
@@ -39,17 +40,24 @@
                     android:layout_height="?attr/actionBarSize"
                     app:layout_collapseMode="pin"
                     app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
+
             </android.support.design.widget.CollapsingToolbarLayout>
+            <View
+                android:layout_below="@+id/app_bar"
+                android:layout_width="match_parent"
+                android:layout_height="5dp"
+                android:id="@+id/shadow"
+                android:background="@drawable/shadow" />
         </android.support.design.widget.AppBarLayout>
         <android.support.v4.widget.NestedScrollView
             android:id="@+id/scrollableview"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:orientation="vertical"
                 android:background="@color/black"
                 android:gravity="center"
@@ -66,14 +74,14 @@
                     <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:padding="15dp"
+                        android:padding="5dp"
                         android:gravity="left"
                         android:background="#000000"
                         android:id="@+id/imgicon">
                         <ImageView
-                            android:layout_width="50dp"
-                            android:layout_height="50dp"
-                            android:background="@mipmap/ic_launcher"/>
+                            android:layout_width="60dp"
+                            android:layout_height="60dp"
+                            android:background="@drawable/hackinthenorth"/>
                     </LinearLayout>
                     <LinearLayout
                         android:layout_width="wrap_content"
@@ -84,8 +92,9 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="event"
-                            android:textSize="30dp"/>
+                            android:text="Hack in the North"
+                            android:textColor="@color/white"
+                            android:textSize="25dp"/>
                         <LinearLayout
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -94,11 +103,12 @@
                                 android:layout_width="20dp"
                                 android:layout_height="20dp"
                                 android:paddingRight="5dp"
-                                android:src="@drawable/bookmark"/>
+                                android:src="@drawable/time"/>
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="ejvyvjv"
+                                android:text="Sat, 06:00pm"
+                                android:textColor="@color/red"
                                 android:textSize="12dp"/>
                         </LinearLayout>
                         <LinearLayout
@@ -109,12 +119,13 @@
                                 android:layout_width="20dp"
                                 android:layout_height="20dp"
                                 android:paddingRight="5dp"
-                                android:src="@drawable/bookmark"/>
+                                android:src="@drawable/location"/>
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="enifttghkj"
-                                android:textSize="15dp"/>
+                                android:textColor="@color/red"
+                                android:text="5001, CC3"
+                                android:textSize="12dp"/>
                             </LinearLayout>
 
                         </LinearLayout>
@@ -127,7 +138,7 @@
                         <ImageView
                             android:layout_width="25dp"
                             android:layout_height="25dp"
-                            android:src="@drawable/bookmark"
+                            android:src="@drawable/book1"
                             android:id="@+id/bfav"
                             />
 
@@ -152,27 +163,27 @@
                     <ImageView
                         android:layout_width="40dp"
                         android:layout_height="40dp"
-                        android:src="@drawable/ic_profile"
+                        android:src="@drawable/about"
                         android:layout_marginRight="10dp"
                         android:id="@+id/bdesc"/>
                     <ImageView
                         android:layout_width="40dp"
                         android:layout_height="40dp"
-                        android:src="@drawable/ic_feed"
+                        android:src="@drawable/rules"
                         android:layout_marginRight="15dp"
                         android:layout_marginLeft="20dp"
                         android:id="@+id/brules"/>
                     <ImageView
                         android:layout_width="40dp"
                         android:layout_height="40dp"
-                        android:src="@drawable/ic_settings"
+                        android:src="@drawable/prizes"
                         android:layout_marginRight="20dp"
                         android:layout_marginLeft="15dp"
                         android:id="@+id/bprize"/>
                     <ImageView
                         android:layout_width="40dp"
                         android:layout_height="40dp"
-                        android:src="@drawable/ic_activity"
+                        android:src="@drawable/organiser"
                         android:layout_marginLeft="10dp"
                         android:id="@+id/borg"/>
 
@@ -211,7 +222,11 @@
                                     android:layout_gravity="center"
                                     android:paddingTop="10dp"
                                     android:textSize="20dp"
-                                    android:text="snvos nvao V  BaoS(vaS isA"
+                                    android:text="snvos nvao V  BaoS(vaS isA anobv naod aNO DFvaO avo IN n aoh s  van OUS vaDV o9a(HOvh 9snvos nvao V  BaoS(vaS isA anobv naod aNO DFvaO avo IN n aoh s  van OUS vaDV o9a(HOvh 9
+                                    snvos nvao V  BaoS(vaS isA anobv naod aNO DFvaO avo IN n aoh s  van OUS vaDV o9a(HOvh 9snvos nvao V  BaoS(vaS isA anobv naod aNO DFvaO avo IN n aoh s  van OUS vaDV o9a(HOvh 9snvos nvao V  BaoS(vaS isA anobv naod aNO DFvaO avo IN n aoh s  van OUS vaDV o9a(HOvh 9
+                                    snvos nvao V  BaoS(vaS isA anobv naod aNO DFvaO avo IN n aoh s  van OUS vaDV o9a(HOvh 9snvos nvao V  BaoS(vaS isA anobv naod aNO DFvaO avo IN n aoh s  van OUS vaDV o9a(HOvh 9snvos nvao V  BaoS(vaS isA anobv naod aNO DFvaO avo IN n aoh s  van OUS vaDV o9a(HOvh 9
+                                    snvos nvao V  BaoS(vaS isA anobv naod aNO DFvaO avo IN n aoh s  van OUS vaDV o9a(HOvh 9snvos nvao V  BaoS(vaS isA anobv naod aNO DFvaO avo IN n aoh s  van OUS vaDV o9a(HOvh 9snvos nvao V  BaoS(vaS isA anobv naod aNO DFvaO avo IN n aoh s  van OUS vaDV o9a(HOvh 9
+                                    snvos nvao V  BaoS(vaS isA anobv naod aNO DFvaO avo IN n aoh s  van OUS vaDV o9a(HOvh 9snvos nvao V  BaoS(vaS isA anobv naod aNO DFvaO avo IN n aoh s  van OUS vaDV o9a(HOvh 9snvos nvao V  BaoS(vaS isA anobv naod aNO DFvaO avo IN n aoh s  van OUS vaDV o9a(HOvh 9"
                                     />
                                 </LinearLayout>
                             <LinearLayout
@@ -219,7 +234,7 @@
                                 android:layout_height="match_parent"
                                 android:id="@+id/rules"
                                 android:orientation="vertical"
-                                android:visibility="invisible">
+                                android:visibility="gone">
                                 <TextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
@@ -242,7 +257,7 @@
                             android:layout_height="match_parent"
                             android:id="@+id/prize"
                             android:orientation="vertical"
-                            android:visibility="invisible">
+                            android:visibility="gone">
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
@@ -265,7 +280,7 @@
                             android:layout_height="match_parent"
                             android:id="@+id/org"
                             android:orientation="vertical"
-                            android:visibility="invisible">
+                            android:visibility="gone">
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
@@ -299,7 +314,7 @@
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
                                         android:text="9807540755"
-                                        android:id="@+id/number1"
+                                        android:id="@+id/num1"
                                         android:textColor="@color/blueminus"
                                         />
                                 </LinearLayout>
