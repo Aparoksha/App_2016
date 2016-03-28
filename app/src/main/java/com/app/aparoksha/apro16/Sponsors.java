@@ -17,10 +17,6 @@ public class Sponsors extends AppCompatActivity{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.sponsors);
 
-        toolbar = (Toolbar) findViewById(R.id.app_bar);
-        //setSupportActionBar(toolbar);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-
         webView = (WebView) findViewById(R.id.webView1);
         webView.getSettings().setJavaScriptEnabled(true);
         webView.loadUrl("https://www.google.co.in");

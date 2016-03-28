@@ -92,13 +92,13 @@ public class Day1 extends AppCompatActivity{
         //Add events in this array
         events_1 = new String[] {"Hack In The North", "Workshops", "NuVision", "Humble Fool Cup Finals", "Biomeda Round 1","Riddilonics Round 1","Pencil Sketching","Blind Wars","Tech Talks-Ashoke Sen","Techno Fault(Round 1)","Wolf of 2311(Round 1)","Tech Quiz(Round 1)","Movie-Ex Machina","Tech Debate(Round 1)","QWERTY Wars","Counter Strike","Movie","Movie"};
 
-        images = new int[] {R.mipmap.ic_launcher,R.mipmap.ic_launcher,R.mipmap.ic_launcher,R.mipmap.ic_launcher,R.mipmap.ic_launcher,R.mipmap.ic_launcher,R.mipmap.ic_launcher,R.mipmap.ic_launcher,R.mipmap.ic_launcher,R.mipmap.ic_launcher,R.mipmap.ic_launcher,R.mipmap.ic_launcher,R.mipmap.ic_launcher,R.mipmap.ic_launcher,R.mipmap.ic_launcher,R.mipmap.ic_launcher,R.mipmap.ic_launcher };
+        images = new int[] {R.mipmap.ic_launcher,R.mipmap.ic_launcher,R.mipmap.ic_launcher,R.mipmap.ic_launcher,R.mipmap.ic_launcher,R.mipmap.ic_launcher,R.mipmap.ic_launcher,R.mipmap.ic_launcher,R.mipmap.ic_launcher,R.mipmap.ic_launcher,R.mipmap.ic_launcher,R.mipmap.ic_launcher,R.mipmap.ic_launcher,R.mipmap.ic_launcher,R.mipmap.ic_launcher,R.mipmap.ic_launcher,R.mipmap.ic_launcher ,R.mipmap.ic_launcher};
 
-        timing = new String[] {"1 PM - 6 PM","1 PM - 2 PM","1.30 PM - 3 PM","3 PM - 4.30 PM","4 PM - 6 PM","5 PM","5 PM - 6 PM","6.30 PM - 7.30 PM","7.30 PM - 8.00 PM","8.30 PM","8.30 PM - 10.30 PM","10.30 PM - 2 AM","10.30 PM","10 PM","1 AM"};
+        timing = new String[] {"12 AM","10 AM - 7.30 PM","11 AM - 2.00 PM","1 PM - 6 PM","1 PM - 2 PM","1.30 PM - 3 PM","3 PM - 4.30 PM","4 PM - 6 PM","5 PM","5 PM - 6 PM","6.30 PM - 7.30 PM","7.30 PM - 8.00 PM","8.30 PM","8.30 PM - 10.30 PM","10.30 PM - 2 AM","10.30 PM","10 PM","1 AM"};
 
-        venue = new String[]{"CC3","CC3","CC3","CC3","CC3","Cafeteria","CC3","Main Audi","CC3","CC3","CC3","LT","Admin Audi","CC3","CC3","LT","LT"};
+        venue = new String[]{"CC3","CC30","CC3","CC3","CC3","CC3","Cafeteria","CC3","Main Audi","CC3","CC3","CC3","LT","Admin Audi","CC3","CC3","LT","LT"};
 
-        intents = new String[]{"DES","DES","DES","DES","DES","DES","DES","DES","DES","DES","DES","DES","DES","DES","DES","DES","DES","DES" };
+        intents = new String[]{"HIN","DES","DES","HUM","BIO","DES","PEN","BLI","DES","TEF","WOL","ITQ","DES","TED","QWE","COU","DES","DES" };
 
         initList(events_1, images, timing, venue, intents);
 

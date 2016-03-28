@@ -98,7 +98,7 @@ public class Day3 extends AppCompatActivity{
 
         venue = new String[] {"Swimming Pool","Tennis Court","Admin Audi","CC3","2311","CC3","Admin Audi","LT","LT"};
 
-        intents = new String[]{"DES", "DES", "DES", "DES", "DES", "DES", "DES", "DES", "DES" };
+    intents = new String[]{"POO", "FLA", "DES", "THR", "DES", "AND", "ITQ", "DES", "DES" };
 
         initList(events_1, images, timing,venue, intents);
 

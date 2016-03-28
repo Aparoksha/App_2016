@@ -98,7 +98,7 @@ public class Day0 extends AppCompatActivity{
 
         venue = new String[]{"Main Audi","Main Audi","CC3","Main Audi/LT","Main Audi/LT"};
 
-        intents = new String[]{"DES", "Eventlist_HackInTheNorth", "DES", "DES", "DES", "DES", "DES", "DES", "DES", "DES", "DES", };
+        intents = new String[]{"DES", "HIN", "TRH", "DES", "DES", "DES", "DES", "DES", "DES", "DES", "DES", };
 
         initList(events_1, images, timing, venue, intents);
 

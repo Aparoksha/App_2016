@@ -138,7 +138,7 @@ public class MainActivity extends AppCompatActivity{
             @Override
             public void onClick(View view) {
                 //Toast.makeText(view.getContext(), "button1", Toast.LENGTH_SHORT).show();
-                Intent i =  new Intent(MainActivity.this,Day0.class);
+                Intent i =  new Intent(MainActivity.this,Day1.class);
                 startActivity(i);
             }
         });
@@ -146,7 +146,7 @@ public class MainActivity extends AppCompatActivity{
             @Override
             public void onClick(View view) {
                 //Toast.makeText(view.getContext(), "button2", Toast.LENGTH_SHORT).show();
-                Intent i =  new Intent(MainActivity.this,Day1.class);
+                Intent i =  new Intent(MainActivity.this,Day2.class);
                 startActivity(i);
             }
         });
@@ -154,7 +154,7 @@ public class MainActivity extends AppCompatActivity{
             @Override
             public void onClick(View view) {
                 //Toast.makeText(view.getContext(), "button3", Toast.LENGTH_SHORT).show();
-                Intent i =  new Intent(MainActivity.this,Day2.class);
+                Intent i =  new Intent(MainActivity.this,Day3.class);
                 startActivity(i);
             }
         });
