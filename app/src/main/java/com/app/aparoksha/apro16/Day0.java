@@ -129,7 +129,6 @@ public class Day0 extends AppCompatActivity{
                 public View getView(int position, View convertView, ViewGroup parent) {
                     View view = super.getView(position, convertView, parent);
                     TextView item_name = (TextView)view.findViewById(R.id.event_name);
-
                     return view;
                 }
             };

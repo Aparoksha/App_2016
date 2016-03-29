@@ -13,7 +13,6 @@ import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.parse.FindCallback;
 import com.parse.ParseObject;
@@ -30,11 +29,11 @@ public class Updates extends AppCompatActivity {
     private Toolbar toolbar;
     private ListView mList;
     private View shad;
-    String[] events = new String[2];
+    String[] events = new String[20];
     int[] images;
-    String[] timing = new String[2];
-    String[] venue = new String[2];
-    String[] intents = new String[2];
+    String[] timing = new String[20];
+    String[] venue = new String[20];
+    String[] intents = new String[20];
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,7 +41,7 @@ public class Updates extends AppCompatActivity {
         getWindow().requestFeature((Window.FEATURE_ACTION_BAR_OVERLAY));
         super.onCreate(savedInstanceState);
 
-        setContentView(R.layout.contacts);
+        setContentView(R.layout.updates);
 
         toolbar = (Toolbar) findViewById(R.id.app_bar);
 
@@ -64,17 +63,16 @@ public class Updates extends AppCompatActivity {
             public void done(List<ParseObject> event_list, com.parse.ParseException e) {
                 if (e == null) {
                     //temp = event_list.get(0).getInt("Temperature");
-                    Toast.makeText(Updates.this, event_list.size() + " ", Toast.LENGTH_LONG).show();
+                    //Toast.makeText(Updates.this, event_list.size() + " ", Toast.LENGTH_LONG).show();
                     for (int i = 0; i < event_list.size(); i++) {
                         events[i] = event_list.get(i).getString("Events").toString();
-                        Toast.makeText(Updates.this, events[i], Toast.LENGTH_LONG).show();
+                        //Toast.makeText(Updates.this, events[i], Toast.LENGTH_LONG).show();
                         timing[i] = event_list.get(i).getString("Timing").toString();
                         venue[i] = event_list.get(i).getString("Venue").toString();
                         intents[i] = event_list.get(i).getString("Intent").toString();
 
                     }
-                    String a = events[0];
-                    Toast.makeText(Updates.this, a, Toast.LENGTH_LONG).show();
+                    initList(events, timing, venue, intents,event_list.size());
 
 
                 } else {
@@ -82,15 +80,15 @@ public class Updates extends AppCompatActivity {
                 }
             }
         });
-//        initList(events, timing, venue, intents);
+//
     }
 
-    public void initList( String[] eventsArray, String[] timingList,String[] venue, String[] intentsList) {
+    public void initList(String[] eventsArray, String[] timingList, String[] venue, String[] intentsList,int len) {
         if (eventsArray.length != 0) {
 
             ArrayList<HashMap<String, String>> eventList = new ArrayList<HashMap<String, String>>();
 
-            for (int i = 0; i < eventsArray.length; i++) {
+            for (int i = 0; i < len; i++) {
                 HashMap<String, String> candy = new HashMap<String, String>();
                 candy.put("event", eventsArray[i]);
                 candy.put("time", timingList[i]);
@@ -99,20 +97,19 @@ public class Updates extends AppCompatActivity {
                 eventList.add(candy);
             }
             ListAdapter adapter = new SimpleAdapter(
-                    Updates.this ,
+                    Updates.this,
                     eventList,
-                    R.layout.list_item,
-                    new String[] { "event", "image", "time", "venue", "intent" },
-                    new int[] { R.id.event_name, R.id.eventImg, R.id.eventTime, R.id.eventVenue, R.id.intent }) {
+                    R.layout.update_items,
+                    new String[]{"event", "time", "venue", "intent"},
+                    new int[]{R.id.event_name, R.id.eventTime, R.id.eventVenue, R.id.intent}) {
                 @Override
                 public View getView(int position, View convertView, ViewGroup parent) {
                     View view = super.getView(position, convertView, parent);
-                    TextView item_name = (TextView)view.findViewById(R.id.event_name);
+                    TextView item_name = (TextView) view.findViewById(R.id.event_name);
 
                     return view;
                 }
             };
-
             mList.setAdapter(adapter);
         }
         mList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -127,10 +124,13 @@ public class Updates extends AppCompatActivity {
             }
         });
     }
+
+
     @Override
     protected void onDestroy() {
         super.onDestroy();
     }
+
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
@@ -139,5 +139,6 @@ public class Updates extends AppCompatActivity {
         }
         return super.onOptionsItemSelected(item);
     }
+
 }
 
