@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
@@ -29,11 +30,11 @@ public class Updates extends AppCompatActivity {
     private Toolbar toolbar;
     private ListView mList;
     private View shad;
-    String[] events;
+    String[] events = new String[2];
     int[] images;
-    String[] timing;
-    String[] venue;
-    String[] intents;
+    String[] timing = new String[2];
+    String[] venue = new String[2];
+    String[] intents = new String[2];
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -63,13 +64,17 @@ public class Updates extends AppCompatActivity {
             public void done(List<ParseObject> event_list, com.parse.ParseException e) {
                 if (e == null) {
                     //temp = event_list.get(0).getInt("Temperature");
+                    Toast.makeText(Updates.this, event_list.size() + " ", Toast.LENGTH_LONG).show();
                     for (int i = 0; i < event_list.size(); i++) {
-                        events[i] = event_list.get(i).getString("Events");
-                        timing[i] = event_list.get(i).getString("Timing");
-                        venue[i] = event_list.get(i).getString("Venue");
-                        intents[i] = event_list.get(i).getString("Intent");
+                        events[i] = event_list.get(i).getString("Events").toString();
+                        Toast.makeText(Updates.this, events[i], Toast.LENGTH_LONG).show();
+                        timing[i] = event_list.get(i).getString("Timing").toString();
+                        venue[i] = event_list.get(i).getString("Venue").toString();
+                        intents[i] = event_list.get(i).getString("Intent").toString();
 
                     }
+                    String a = events[0];
+                    Toast.makeText(Updates.this, a, Toast.LENGTH_LONG).show();
 
 
                 } else {
@@ -77,9 +82,7 @@ public class Updates extends AppCompatActivity {
                 }
             }
         });
-        String a = events.length+" ";
-        Toast.makeText(this,a,Toast.LENGTH_LONG).show();
-        //initList(events, timing, venue, intents);
+//        initList(events, timing, venue, intents);
     }
 
     public void initList( String[] eventsArray, String[] timingList,String[] venue, String[] intentsList) {
@@ -92,7 +95,7 @@ public class Updates extends AppCompatActivity {
                 candy.put("event", eventsArray[i]);
                 candy.put("time", timingList[i]);
                 candy.put("venue", venue[i]);
-                candy.put("intent", intentsList[i].trim());
+                candy.put("intent", intentsList[i]);
                 eventList.add(candy);
             }
             ListAdapter adapter = new SimpleAdapter(
@@ -123,6 +126,18 @@ public class Updates extends AppCompatActivity {
                 startActivity(i);
             }
         });
+    }
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+    }
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+        if (id == android.R.id.home) {
+            finish();
+        }
+        return super.onOptionsItemSelected(item);
     }
 }
 

@@ -43,8 +43,8 @@
                 <action android:name="com.google.android.c2dm.intent.RECEIVE" />
                 <action android:name="com.google.android.c2dm.intent.REGISTRATION" />
 
-                <!-- IMPORTANT: Change "info.androidhive.parsenotifications" to match your app's package name. -->
-                <category android:name="effe.devastrix.com.effervescencemmxv" />
+
+                <category android:name="com.app.aparoksha.apro16" />
             </intent-filter>
         </receiver>
         <activity
