@@ -5,7 +5,7 @@ Here's a medium to get a step closer to Aparoksha as we present you an interesti
 As Far as literal meaning is concerned, ‘Aparoksha’ is a Sanskrit adjective that highlights perception. It refers to the intuitive expertise - one of the seven stages of knowledge. Apparently, Technology is a direct consequence of imagination, perception. Where Technology fostered several miraculous breakthrough in various influential zones of society, there Imagination has brought mankind through the Dark Ages to its present state of civilization. Whether it is Kekule who dreamt about a benzene structure or wright brothers who invented aeroplane, every paragon is beneficence of imagination of an erudite. A strong imagination has the power to mould a pile of junk in a masterpiece.
 
 
-Download now on Google Play Store!
+#### Download now on Google Play Store!
 Link: https://goo.gl/2UHXyB
 
 ### Screenshot
