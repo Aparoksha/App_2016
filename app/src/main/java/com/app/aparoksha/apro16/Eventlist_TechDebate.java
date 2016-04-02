@@ -10,6 +10,7 @@ import android.os.Bundle;
 import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
@@ -47,6 +48,7 @@ public class Eventlist_TechDebate extends AppCompatActivity implements View.OnCl
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Log.d("hello", "lauda techdebate");
         setContentView(R.layout.event_techdebate);
         toolbar = (Toolbar) findViewById(R.id.anim_toolbar);
         setSupportActionBar(toolbar);
@@ -79,9 +81,9 @@ public class Eventlist_TechDebate extends AppCompatActivity implements View.OnCl
         num2 = (TextView) findViewById(R.id.number2);
         org2 = (LinearLayout) findViewById(R.id.organiser2);
         org2.setOnClickListener(this);
-        num3 = (TextView) findViewById(R.id.num3);
+      /*  num3 = (TextView) findViewById(R.id.num3);
         org3 = (LinearLayout) findViewById(R.id.organiser3);
-        org3.setOnClickListener(this);
+        org3.setOnClickListener(this);*/
 
         // Animation in = AnimationUtils.loadAnimation(this, android.R.anim.fade_in);
         // Animation out = AnimationUtils.loadAnimation(this, android.R.anim.fade_out);
@@ -225,6 +227,7 @@ public class Eventlist_TechDebate extends AppCompatActivity implements View.OnCl
                     startActivity(callIntent2);
                 }
                 break;
+
 
 
         }

@@ -109,23 +109,7 @@
             android:text="@string/updates" />
     </LinearLayout>
 
-    <LinearLayout
-        android:id="@+id/settings_group2"
-        style="@style/LinearLayout.GuillotineItem"
-        android:orientation="horizontal"
-        android:layout_height="wrap_content"
-        android:layout_width="match_parent"
-        android:onClick="ceventnow">
 
-        <ImageView
-            style="@style/ImageView.GuillotineItem"
-            android:src="@drawable/ic_eventsnow" />
-
-        <TextView
-            style="@style/TextView.GuillotineItem"
-            android:id="@+id/teventsnow"
-            android:text="@string/eventnow" />
-    </LinearLayout>
 
     <LinearLayout
         android:id="@+id/settings_group3"
@@ -144,6 +128,24 @@
             android:id="@+id/tfavorites"
             android:text="@string/favorites" />
     </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/settings_group55"
+                style="@style/LinearLayout.GuillotineItem"
+                android:orientation="horizontal"
+                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                android:onClick="cnavigate">
+
+                <ImageView
+                    style="@style/ImageView.GuillotineItem"
+                    android:src="@drawable/location" />
+
+                <TextView
+                    style="@style/TextView.GuillotineItem"
+                    android:id="@+id/tnavi"
+                    android:text="@string/favorites" />
+            </LinearLayout>
 
     <LinearLayout
                 android:id="@+id/settings_group10"

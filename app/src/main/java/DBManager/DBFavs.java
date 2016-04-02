@@ -14,7 +14,6 @@ import java.util.ArrayList;
  * Created by user on 8/1/2015.
  */
 public class DBFavs {
-
     public static final String KEY_ROWID = "_id";
     public static final String KEY_NAME = "event_name";
     public static final String KEY_ADDRESS = "event_address";
@@ -74,7 +73,7 @@ public class DBFavs {
         ContentValues cv = new ContentValues();
         cv.put(KEY_NAME, name);
         cv.put(KEY_ADDRESS, address);
-        Log.d("data inserted = ", "yes");
+        Log.d("hello", name+ " "+address);
         return ourDatabase.insert(DATABASE_TABLE, null, cv);
     }
 

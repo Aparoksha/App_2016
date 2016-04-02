@@ -81,7 +81,7 @@
                             <ImageView
                                 android:layout_width="50dp"
                                 android:layout_height="50dp"
-                                android:background="@drawable/android"/>
+                                android:background="@drawable/alkhwarizm"/>
                         </LinearLayout>
                         <LinearLayout
                             android:layout_width="wrap_content"
@@ -302,7 +302,7 @@
                                 <TextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:text="Satyam Poddar"
+                                    android:text="Swapnil Saxena"
                                     android:textSize="17sp"
                                     android:textColor="@color/white"
                                     />
@@ -322,7 +322,7 @@
                                     android:layout_marginTop="10dp"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:src="@drawable/ic_settings"
+                                    android:src="@drawable/call"
                                     android:layout_alignParentTop="true"
                                     android:layout_alignParentRight="true"
                                     android:layout_alignParentEnd="true" />
@@ -345,7 +345,7 @@
                                 <TextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:text="Divyesh Soni"
+                                    android:text="Ayush Awasthi"
                                     android:textSize="17sp"
                                     android:textColor="@color/white"
                                     />
@@ -365,7 +365,7 @@
                                     android:layout_marginTop="10dp"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:src="@drawable/ic_settings"
+                                    android:src="@drawable/call"
                                     android:layout_alignParentTop="true"
                                     android:layout_alignParentRight="true"
                                     android:layout_alignParentEnd="true" />

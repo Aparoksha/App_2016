@@ -4,6 +4,7 @@ import android.animation.ObjectAnimator;
 import android.animation.PropertyValuesHolder;
 import android.content.Intent;
 import android.graphics.Typeface;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -19,6 +20,7 @@ import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.oguzdev.circularfloatingactionmenu.library.FloatingActionButton;
 import com.oguzdev.circularfloatingactionmenu.library.FloatingActionMenu;
@@ -32,6 +34,7 @@ import butterknife.InjectView;
 public class MainActivity extends AppCompatActivity{
 
     private static final int NUM_PAGES = 4;
+    private int pressed = 0;
     //Toolbar toolbar;
     private FrameLayout root;
     private View contentHamburger;
@@ -43,9 +46,9 @@ public class MainActivity extends AppCompatActivity{
     Toolbar toolbar;
     TextView act_name;
 
-    ImageView micon,itemIcon1,itemIcon2,itemIcon3,itemIcon4;
+    ImageView micon,itemIcon1,itemIcon2,itemIcon3;
 
-    public TextView thome,tevents,tschedule,tupdates,teventsnow,tfavorites,tsponsors,tcontacts,tdevelopers;
+    public TextView thome,tevents,tschedule,tupdates,tfavorites,tsponsors,tcontacts,tdevelopers;
    // private LinearLayout ll;
     /**
      * The pager widget, which handles animation and allows swiping horizontally to access previous
@@ -57,6 +60,7 @@ public class MainActivity extends AppCompatActivity{
      * The pager adapter, which provides the pages to the view pager widget.
      */
     private PagerAdapter mPagerAdapter;
+    private TextView tnavi;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -84,7 +88,7 @@ public class MainActivity extends AppCompatActivity{
         act_name.setText("Aparoksha'16");
 
         micon = new ImageView(this);
-        micon.setImageDrawable(getResources().getDrawable(R.drawable.ic_action_new));
+        micon.setImageDrawable(getResources().getDrawable(R.drawable.ic_share_white_36dp));
         //micon = (ImageView)findViewById(R.id.mainIcon);
         actionButton = new FloatingActionButton.Builder(this)
                 .setContentView(micon)
@@ -94,18 +98,15 @@ public class MainActivity extends AppCompatActivity{
         SubActionButton.Builder itemBuilder = new SubActionButton.Builder(this);
 // repeat many times:
         itemIcon1 = new ImageView(this);
-        itemIcon1.setImageDrawable(getResources().getDrawable(R.drawable.icon_start_2x));
+        itemIcon1.setImageDrawable(getResources().getDrawable(R.drawable.itemicon3));
         button1 = itemBuilder.setContentView(itemIcon1).setBackgroundDrawable(getResources().getDrawable(R.drawable.button_action_blue_selector)).build();
         itemIcon2 = new ImageView(this);
-        itemIcon2.setImageDrawable(getResources().getDrawable(R.drawable.icon_start_2x));
+        itemIcon2.setImageDrawable(getResources().getDrawable(R.drawable.itemicon2));
         button2 = itemBuilder.setContentView(itemIcon2).setBackgroundDrawable(getResources().getDrawable(R.drawable.button_action_blue_selector)).build();
         itemIcon3 = new ImageView(this);
-        itemIcon3.setImageDrawable(getResources().getDrawable(R.drawable.icon_start_2x));
+        itemIcon3.setImageDrawable(getResources().getDrawable(R.drawable.itemicon1));
         button3 = itemBuilder.setContentView(itemIcon3).setBackgroundDrawable(getResources().getDrawable(R.drawable.button_action_blue_selector)).build();
-        /*itemIcon4 = new ImageView(this);
-        itemIcon4.setImageDrawable(getResources().getDrawable(R.drawable.icon_start_2x));
-        button4 = itemBuilder.setContentView(itemIcon3).setBackgroundDrawable(getResources().getDrawable(R.drawable.button_action_blue_selector)).build();
-*/
+
         fabMenu = new FloatingActionMenu.Builder(this)
                 .addSubActionView(itemBuilder.setContentView(button1).build())
                 .addSubActionView(itemBuilder.setContentView(button2).build())
@@ -138,24 +139,30 @@ public class MainActivity extends AppCompatActivity{
             @Override
             public void onClick(View view) {
                 //Toast.makeText(view.getContext(), "button1", Toast.LENGTH_SHORT).show();
-                Intent i =  new Intent(MainActivity.this,Day1.class);
-                startActivity(i);
+                String url = "https://hackinthenorth.com";
+                Intent ir = new Intent(Intent.ACTION_VIEW);
+                ir.setData(Uri.parse(url));
+                startActivity(ir);
             }
         });
         button2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 //Toast.makeText(view.getContext(), "button2", Toast.LENGTH_SHORT).show();
-                Intent i =  new Intent(MainActivity.this,Day2.class);
-                startActivity(i);
+                String url = "https://aparoksha.iiita.ac.in";
+                Intent ir = new Intent(Intent.ACTION_VIEW);
+                ir.setData(Uri.parse(url));
+                startActivity(ir);
             }
         });
         button3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 //Toast.makeText(view.getContext(), "button3", Toast.LENGTH_SHORT).show();
-                Intent i =  new Intent(MainActivity.this,Day3.class);
-                startActivity(i);
+                String url = "https://www.facebook.com/aparoksha";
+                Intent ir = new Intent(Intent.ACTION_VIEW);
+                ir.setData(Uri.parse(url));
+                startActivity(ir);
             }
         });
 
@@ -199,13 +206,31 @@ public class MainActivity extends AppCompatActivity{
         tevents = (TextView)findViewById(R.id.tevents);
         tschedule = (TextView)findViewById(R.id.tschedule);
         tupdates = (TextView)findViewById(R.id.tupdates);
-        teventsnow = (TextView)findViewById(R.id.teventsnow);
         tsponsors = (TextView)findViewById(R.id.tsponsors);
         tfavorites = (TextView)findViewById(R.id.tfavorites);
         tcontacts = (TextView)findViewById(R.id.tcontacts);
         tdevelopers = (TextView)findViewById(R.id.tdevelopers);
+        tnavi = (TextView)findViewById(R.id.tnavi);
 
         //resetstyle();
+        thome.setTypeface(tf1);
+        thome.setText("Home");
+        tevents.setTypeface(tf1);
+        tevents.setText("Events Log");
+        tschedule.setTypeface(tf1);
+        tschedule.setText("Schedule");
+        tupdates.setTypeface(tf1);
+        tupdates.setText("Updates");
+        tsponsors.setTypeface(tf1);
+        tsponsors.setText("Sponsors");
+        tfavorites.setTypeface(tf1);
+        tfavorites.setText("Favorites");
+        tcontacts.setTypeface(tf1);
+        tcontacts.setText("Contacts");
+        tdevelopers.setTypeface(tf1);
+        tdevelopers.setText("Developers");
+        tnavi.setTypeface(tf1);
+        tnavi.setText("Navigate");
 
     }
 
@@ -215,12 +240,20 @@ public class MainActivity extends AppCompatActivity{
         if (mPager.getCurrentItem() == 0) {
             // If the user is currently looking at the first step, allow the system to handle the
             // Back button. This calls finish() on this activity and pops the back stack.
-            super.onBackPressed();
+            if (pressed == 0) {
+                Toast.makeText(MainActivity.this, "Press Again to Exit", Toast.LENGTH_SHORT).show();
+                pressed = 1;
+            }
+            else if (pressed == 1) {
+                pressed = 0;
+                super.onBackPressed();
+            }
         } else {
             // Otherwise, select the previous step.
             mPager.setCurrentItem(mPager.getCurrentItem() - 1);
         }
     }
+
 
     /**
      * A simple pager adapter that represents 5 ScreenSlidePageFragment objects, in
@@ -308,6 +341,7 @@ public class MainActivity extends AppCompatActivity{
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
+            startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id=" + "com.app.aparoksha.apro16")));
             return true;
         }
 
@@ -335,13 +369,6 @@ public class MainActivity extends AppCompatActivity{
         startActivity(i);
         //finish();
     }
-    public void ceventnow(View v){
-        //resetstyle();
-        //teventsnow.setTextAppearance(R.style.TextView_GuillotineItem_Selected);
-        Intent i =  new Intent(MainActivity.this,Updates.class);
-        startActivity(i);
-        //finish();
-    }
    public void cupdates(View v) {
        //resetstyle();
        //tupdates.setTextAppearance(R.style.TextView_GuillotineItem_Selected);
@@ -360,8 +387,10 @@ public class MainActivity extends AppCompatActivity{
    public   void csponsors(View v){
        //resetstyle();
        //tsponsors.setTextAppearance(R.style.TextView_GuillotineItem_Selected);
-        Intent i =  new Intent(MainActivity.this,Sponsors.class);
-        startActivity(i);
+       String url = "https://aparoksha.iiita.ac.in";
+       Intent ir = new Intent(Intent.ACTION_VIEW);
+       ir.setData(Uri.parse(url));
+       startActivity(ir);
        //finish();
    }
 
@@ -378,6 +407,13 @@ public class MainActivity extends AppCompatActivity{
         //resetstyle();
         //tdevelopers.setTextAppearance(R.style.TextView_GuillotineItem_Selected);
         Intent i =  new Intent(MainActivity.this,Developers.class);
+        startActivity(i);
+        //finish();
+    }
+    public void cnavigate(View v){
+        //resetstyle();
+        //tdevelopers.setTextAppearance(R.style.TextView_GuillotineItem_Selected);
+        Intent i =  new Intent(MainActivity.this,Navigate.class);
         startActivity(i);
         //finish();
     }

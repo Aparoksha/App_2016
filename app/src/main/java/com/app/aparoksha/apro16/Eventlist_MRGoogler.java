@@ -225,6 +225,19 @@ public class Eventlist_MRGoogler extends AppCompatActivity implements View.OnCli
                     startActivity(callIntent2);
                 }
                 break;
+            case R.id.organiser3:
+                String number3 = num3.getText().toString().trim();
+                Intent callIntent3 = new Intent(Intent.ACTION_VIEW, Uri.parse("tel:+91"+number3));
+               /* startActivity(callIntent);
+                Intent callIntent22 = new Intent(Intent.ACTION_CALL);
+                callIntent22.setData(Uri.parse("tel:+91" + number2));*/
+                if (!hasPermission("android.permission.CALL_PHONE")) {
+                    Toast.makeText(this, "Grant permission for Calling", Toast.LENGTH_SHORT).show();
+                    return;
+                } else {
+                    startActivity(callIntent3);
+                }
+                break;
 
 
         }

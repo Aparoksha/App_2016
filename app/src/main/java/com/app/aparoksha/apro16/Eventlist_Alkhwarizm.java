@@ -19,6 +19,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import DBManager.DBFavs;
+import uk.co.chrisjenx.calligraphy.CalligraphyConfig;
+import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 
 /**
  * Created by Satyam Poddar on 16-Feb-16.
@@ -45,6 +47,7 @@ public class Eventlist_Alkhwarizm extends AppCompatActivity implements View.OnCl
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.event_alkhwarizm);
         toolbar = (Toolbar) findViewById(R.id.anim_toolbar);
         setSupportActionBar(toolbar);

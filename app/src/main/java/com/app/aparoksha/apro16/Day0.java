@@ -1,12 +1,15 @@
 package com.app.aparoksha.apro16;
 
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
+import android.graphics.Typeface;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.TypedValue;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.BounceInterpolator;
@@ -22,6 +25,9 @@ import com.baoyz.swipemenulistview.SwipeMenuListView;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+import uk.co.chrisjenx.calligraphy.CalligraphyConfig;
+import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
+
 /**
  * Created by Satyam Poddar on 30-Jan-16.
  */
@@ -32,17 +38,27 @@ public class Day0 extends AppCompatActivity{
     int[] images;
     String[] timing;
     String[] intents;
-    String[] venue;
-    TextView eventName;
+    TextView eventName,act_name;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        CalligraphyConfig.initDefault(new CalligraphyConfig.Builder()
+                        .setDefaultFontPath("fonts/JosefinSans-Regular.ttf")
+                        .setFontAttrId(R.attr.fontPath)
+                        .build()
+        );
         setContentView(R.layout.eventsnow);
 
         toolbar = (Toolbar) findViewById(R.id.app_bar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        act_name = (TextView)findViewById(R.id.activity_name);
+        Typeface tf1 = Typeface.createFromAsset(getAssets(),
+                "JosefinSans-Regular.ttf");
+
+        act_name.setTypeface(tf1);
+        act_name.setText("Day 1");
 
         mList = (SwipeMenuListView) findViewById(R.id.listView);
         // step 1. create a MenuCreator
@@ -54,8 +70,8 @@ public class Day0 extends AppCompatActivity{
                 SwipeMenuItem openItem = new SwipeMenuItem(
                         getApplicationContext());
                 // set item background
-                openItem.setBackground(new ColorDrawable(Color.rgb(0x38, 0x8e,
-                        0x3c)));
+                openItem.setBackground(new ColorDrawable(Color.rgb(0x52, 0xb3,
+                        0xd9)));
                 // set item width
                 openItem.setWidth(dp2px(90));
                 // set item title
@@ -89,22 +105,20 @@ public class Day0 extends AppCompatActivity{
 
 
         //Add events in this array
-        events_1 = new String[] {"Aparoksha Inauguration Ceremony", "Hack In The North Opening Ceremony", "Treasure Hunt", "Movie - Steve Jobs (2015)", "Movie - The Martian (2015)"};
+        events_1 = new String[] {"Aparoksha Inauguration Ceremony", "Hack In The North Opening Ceremony", "Treasure Hunt", "Movie - Steve Jobs (2015)", "Hack In the North", "Blind Wars",  "Movie - The Martian (2015)"};
 
-        images = new int[] {R.mipmap.ic_launcher,R.mipmap.ic_launcher,R.mipmap.ic_launcher,R.mipmap.ic_launcher,R.mipmap.ic_launcher };
+        images = new int[] {R.drawable.aparoksha_logo,R.drawable.hackinthenorth,R.drawable.treasurehunt,R.mipmap.ic_launcher,R.drawable.hackinthenorth,R.drawable.blindwar,R.mipmap.ic_launcher };
 
-        timing = new String[] {"6.30 PM","9.30 PM","10 PM","11 PM","1 AM"};
+        timing = new String[] {"6.30 PM, Main Audi","9.30 PM, Main Audi","10 PM, CC3","11 PM, Main Audi/LT","12 AM, CC3 3rd Floor","12 AM, CC3 1st Floor","1 AM, Main Audi/LT"};
 
-        venue = new String[]{"Main Audi","Main Audi","CC3","Main Audi/LT","Main Audi/LT"};
+        intents = new String[]{"MAIN1", "HAC", "TRE", "MAIN1", "HAC", "BLI","MAIN1", };
 
-        intents = new String[]{"DES", "HIN", "TRH", "DES", "DES", "DES", "DES", "DES", "DES", "DES", "DES", };
-
-        initList(events_1, images, timing, venue, intents);
+        initList(events_1, images, timing, intents);
 
     }
 
 
-    public void initList(String[] eventsArray, int[] imagesList, String[] timingList, String[] venue, String[] intentsList) {
+    public void initList(String[] eventsArray, int[] imagesList, String[] timingList, String[] intentsList) {
         if(eventsArray.length != 0) {
 
             ArrayList<HashMap<String, String>> eventList = new ArrayList<HashMap<String, String>>();
@@ -114,7 +128,6 @@ public class Day0 extends AppCompatActivity{
                 candy.put("event", eventsArray[i]);
                 candy.put("image", Integer.toString(imagesList[i]));
                 candy.put("time", timingList[i]);
-                candy.put("venue", venue[i]);
                 candy.put("intent", "com.app.aparoksha.apro16."+intentsList[i].trim());
                 eventList.add(candy);
             }
@@ -123,12 +136,13 @@ public class Day0 extends AppCompatActivity{
                     Day0.this ,
                     eventList,
                     R.layout.list_item,
-                    new String[] { "event", "image", "time", "venue", "intent" },
-                    new int[] { R.id.event_name, R.id.eventImg, R.id.eventTime, R.id.eventVenue, R.id.intent }) {
+                    new String[] { "event", "image", "time", "intent" },
+                    new int[] { R.id.event_name, R.id.eventImg, R.id.eventTime, R.id.intent }) {
                 @Override
                 public View getView(int position, View convertView, ViewGroup parent) {
                     View view = super.getView(position, convertView, parent);
                     TextView item_name = (TextView)view.findViewById(R.id.event_name);
+
                     return view;
                 }
             };
@@ -144,7 +158,6 @@ public class Day0 extends AppCompatActivity{
                         // open
 
                         String intentToOpen = "com.app.aparoksha.apro16." + intents[position];
-
 
                         Intent i = new Intent(intentToOpen);
                         i.putExtra("INTENT", intentToOpen);
@@ -168,5 +181,20 @@ public class Day0 extends AppCompatActivity{
                 getResources().getDisplayMetrics());
     }
 
-
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+    }
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+        if (id == android.R.id.home) {
+            finish();
+        }
+        return super.onOptionsItemSelected(item);
+    }
+    @Override
+    protected void attachBaseContext(Context newBase) {
+        super.attachBaseContext(CalligraphyContextWrapper.wrap(newBase));
+    }
 }

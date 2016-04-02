@@ -1,7 +1,9 @@
 package com.app.aparoksha.apro16;
 
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
+import android.graphics.Typeface;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -23,6 +25,9 @@ import com.baoyz.swipemenulistview.SwipeMenuListView;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+import uk.co.chrisjenx.calligraphy.CalligraphyConfig;
+import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
+
 /**
  * Created by Satyam Poddar on 30-Jan-16.
  */
@@ -32,18 +37,28 @@ public class Day1 extends AppCompatActivity{
     String[] events_1;
     int[] images;
     String[] timing;
-    String[]venue;
     String[] intents;
-    TextView eventName;
+    TextView eventName,act_name;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        CalligraphyConfig.initDefault(new CalligraphyConfig.Builder()
+                        .setDefaultFontPath("fonts/JosefinSans-Regular.ttf")
+                        .setFontAttrId(R.attr.fontPath)
+                        .build()
+        );
         setContentView(R.layout.eventsnow);
 
         toolbar = (Toolbar) findViewById(R.id.app_bar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        act_name = (TextView)findViewById(R.id.activity_name);
+        Typeface tf1 = Typeface.createFromAsset(getAssets(),
+                "JosefinSans-Regular.ttf");
+
+        act_name.setTypeface(tf1);
+        act_name.setText("Day 2");
 
         mList = (SwipeMenuListView) findViewById(R.id.listView);
         // step 1. create a MenuCreator
@@ -55,8 +70,8 @@ public class Day1 extends AppCompatActivity{
                 SwipeMenuItem openItem = new SwipeMenuItem(
                         getApplicationContext());
                 // set item background
-                openItem.setBackground(new ColorDrawable(Color.rgb(0x38, 0x8e,
-                        0x3c)));
+                openItem.setBackground(new ColorDrawable(Color.rgb(0xf2, 0xb3,
+                        0xd9)));
                 // set item width
                 openItem.setWidth(dp2px(90));
                 // set item title
@@ -90,22 +105,32 @@ public class Day1 extends AppCompatActivity{
 
 
         //Add events in this array
-        events_1 = new String[] {"Hack In The North", "Workshops", "NuVision", "Humble Fool Cup Finals", "Biomeda Round 1","Riddilonics Round 1","Pencil Sketching","Blind Wars","Tech Talks-Ashoke Sen","Techno Fault(Round 1)","Wolf of 2311(Round 1)","Tech Quiz(Round 1)","Movie-Ex Machina","Tech Debate(Round 1)","QWERTY Wars","Counter Strike","Movie","Movie"};
+        events_1 = new String[] { "Workshops", "NuVision","Tech Talks - Ashoke Sen", "Humble Fool Cup Finals", "Biomeda Round 1",
+                "Riddilonics Round 1","Technohive Round 1(IT)","QWERTY Wars - Qualifiers Slot 1","Techno Fault(Round 1)",
+                "Three Musketeers","Wolf of 2311(Round 1)","Tech Quiz(Round 1)","Lazer Tag","Movie-Ex Machina",
+                "Tech Debate(Round 1)","QWERTY Wars",
+                "Movie-Mad Max Fury Road (2015)","Movie-Oculus (2014)"};
 
-        images = new int[] {R.mipmap.ic_launcher,R.mipmap.ic_launcher,R.mipmap.ic_launcher,R.mipmap.ic_launcher,R.mipmap.ic_launcher,R.mipmap.ic_launcher,R.mipmap.ic_launcher,R.mipmap.ic_launcher,R.mipmap.ic_launcher,R.mipmap.ic_launcher,R.mipmap.ic_launcher,R.mipmap.ic_launcher,R.mipmap.ic_launcher,R.mipmap.ic_launcher,R.mipmap.ic_launcher,R.mipmap.ic_launcher,R.mipmap.ic_launcher ,R.mipmap.ic_launcher};
+        images = new int[] {R.mipmap.ic_launcher,R.mipmap.ic_launcher,R.mipmap.ic_launcher,R.drawable.humblefool,R.drawable.biomeda,
+                R.drawable.riddlonics,R.mipmap.ic_launcher,R.drawable.qwertywars,R.drawable.technofault,R.drawable.threemuski,
+                R.drawable.wolfof,R.drawable.itquiz,R.mipmap.ic_launcher,R.mipmap.ic_launcher,R.drawable.techdebate,R.drawable.qwertywars,
+                R.mipmap.ic_launcher, R.mipmap.ic_launcher };
 
-        timing = new String[] {"12 AM","10 AM - 7.30 PM","11 AM - 2.00 PM","1 PM - 6 PM","1 PM - 2 PM","1.30 PM - 3 PM","3 PM - 4.30 PM","4 PM - 6 PM","5 PM","5 PM - 6 PM","6.30 PM - 7.30 PM","7.30 PM - 8.00 PM","8.30 PM","8.30 PM - 10.30 PM","10.30 PM - 2 AM","10.30 PM","10 PM","1 AM"};
+        timing = new String[] {"10 AM-7.30 PM, CC3 5006, 5007, 5054, 5055","11 AM -  2.00 PM, CC3 5106","12 PM, Main Audi ","1 PM - 6 PM, CC3 Ground Floor","1 PM - 2 PM, CC3 5106",
+                "1.30 PM - 3 PM, CC3 5107","1:30 pm - 3 pm, CC3 5254","2 PM - 5 PM, CC3 2nd Floor","5 PM - 6 PM, CC3 5106",
+                "5.30  PM - 7.30 PM, CC3 2nd Floor","6.30 PM - 7.30 PM, CC3 5106",
+                "7.30 PM - 8.00 PM, CC3 5107",
+                "8 PM - 2 AM, New Admin Building ","8.30 PM, Main Audi","8.30 PM - 10.30 PM, Admin Audi","10.30 PM - 2 AM, CC3 2nd Floor","10 PM, Main Audi","1 AM, Main Audi"};
 
-        venue = new String[]{"CC3","CC30","CC3","CC3","CC3","CC3","Cafeteria","CC3","Main Audi","CC3","CC3","CC3","LT","Admin Audi","CC3","CC3","LT","LT"};
+        intents = new String[]{"MAIN1", "MAIN1", "HUM", "BIO", "RID", "MAIN1", "QWE", "TECFA","THR","WOL","ITQ","MAIN1",
+                "MAIN1", "TECDE", "QWE", "MAIN1", "MAIN1","MAIN1"};
 
-        intents = new String[]{"HIN","DES","DES","HUM","BIO","DES","PEN","BLI","DES","TEF","WOL","ITQ","DES","TED","QWE","COU","DES","DES" };
-
-        initList(events_1, images, timing, venue, intents);
+        initList(events_1, images, timing, intents);
 
     }
 
 
-    public void initList(String[] eventsArray, int[] imagesList, String[] timingList, String[] venue,String[] intentsList) {
+    public void initList(String[] eventsArray, int[] imagesList, String[] timingList, String[] intentsList) {
         if(eventsArray.length != 0) {
 
             ArrayList<HashMap<String, String>> eventList = new ArrayList<HashMap<String, String>>();
@@ -115,7 +140,6 @@ public class Day1 extends AppCompatActivity{
                 candy.put("event", eventsArray[i]);
                 candy.put("image", Integer.toString(imagesList[i]));
                 candy.put("time", timingList[i]);
-                candy.put("venue", venue[i]);
                 candy.put("intent", "com.app.aparoksha.apro16."+intentsList[i].trim());
                 eventList.add(candy);
             }
@@ -124,7 +148,7 @@ public class Day1 extends AppCompatActivity{
                     Day1.this ,
                     eventList,
                     R.layout.list_item,
-                    new String[] { "event", "image", "time","venue", "intent" },
+                    new String[] { "event", "image", "time", "intent" },
                     new int[] { R.id.event_name, R.id.eventImg, R.id.eventTime, R.id.intent }) {
                 @Override
                 public View getView(int position, View convertView, ViewGroup parent) {
@@ -180,5 +204,9 @@ public class Day1 extends AppCompatActivity{
             finish();
         }
         return super.onOptionsItemSelected(item);
+    }
+    @Override
+    protected void attachBaseContext(Context newBase) {
+        super.attachBaseContext(CalligraphyContextWrapper.wrap(newBase));
     }
 }

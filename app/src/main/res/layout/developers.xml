@@ -4,12 +4,21 @@
     tools:context="com.app.aparoksha.apro16.Developers">
 
     <include android:id="@+id/app_bar"
-        layout="@layout/app_bar"
+        layout="@layout/app_bar"/>
+    <View
+        android:layout_below="@+id/app_bar"
+        android:layout_width="match_parent"
+        android:layout_height="5dp"
+        android:id="@+id/shadow"
+        android:background="@drawable/shadow" />
 
-        />
-
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fillViewport="true"
+        android:layout_below="@+id/shadow">
     <LinearLayout
-        android:background="@drawable/vr"
+        android:background="@drawable/background"
 
         android:layout_below="@+id/app_bar"
         android:gravity="center_horizontal"
@@ -20,8 +29,8 @@
             android:layout_marginTop="20dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="App Developers"
-            android:textColor="#F9690E"
+            android:text="Head, App"
+            android:textColor="@color/red"
             android:textSize="26sp"/>
         <LinearLayout
             android:layout_width="match_parent"
@@ -44,7 +53,40 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Kumar Sanyam"
-                    android:textSize="20sp"/>
+                    android:textColor="@color/blueminus"
+                    android:textSize="15sp"/>
+            </LinearLayout>
+        </LinearLayout>
+        <TextView
+            android:layout_marginTop="20dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Developers and Designers"
+            android:textColor="@color/red"
+            android:textSize="26sp"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:padding="10dp">
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:layout_marginRight="10dp">
+
+                <com.app.aparoksha.apro16.RoundedImageView
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:src="@mipmap/satyam"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Satyam Poddar"
+                    android:textColor="@color/blueminus"
+                    android:textSize="15sp"/>
             </LinearLayout>
             <LinearLayout
                 android:layout_width="wrap_content"
@@ -56,12 +98,13 @@
                 <com.app.aparoksha.apro16.RoundedImageView
                     android:layout_width="100dp"
                     android:layout_height="100dp"
-                    android:src="@mipmap/satyam"/>
+                    android:src="@mipmap/divyesh"/>
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Satyam Poddar"
-                    android:textSize="20sp"/>
+                    android:text="Divyesh Soni"
+                    android:textColor="@color/blueminus"
+                    android:textSize="15sp"/>
             </LinearLayout>
         </LinearLayout>
 
@@ -81,13 +124,14 @@
                 <com.app.aparoksha.apro16.RoundedImageView
                     android:layout_width="100dp"
                     android:layout_height="100dp"
-                    android:src="@mipmap/profile"
+                    android:src="@mipmap/ratul"
                     android:id="@+id/img" />
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Ratul Ghosh"
-                    android:textSize="20sp"/>
+                    android:textColor="@color/blueminus"
+                    android:textSize="15sp"/>
             </LinearLayout>
             <LinearLayout
                 android:layout_width="wrap_content"
@@ -99,20 +143,21 @@
                 <com.app.aparoksha.apro16.RoundedImageView
                     android:layout_width="100dp"
                     android:layout_height="100dp"
-                    android:src="@mipmap/satyam"/>
+                    android:src="@mipmap/anurag"/>
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Satyam Poddar"
-                    android:textSize="20sp"/>
+                    android:text="Anurag Rai"
+                    android:textColor="@color/blueminus"
+                    android:textSize="15sp"/>
             </LinearLayout>
         </LinearLayout>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Graphics Designers"
-            android:textColor="#F9690E"
+            android:text="Contributors"
+            android:textColor="@color/red"
             android:textSize="26sp"/>
         <LinearLayout
             android:layout_width="match_parent"
@@ -130,16 +175,34 @@
                 <com.app.aparoksha.apro16.RoundedImageView
                     android:layout_width="100dp"
                     android:layout_height="100dp"
-                    android:src="@mipmap/divyesh"/>
+                    android:src="@mipmap/rudraksha"/>
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Divyesh Soni"
+                    android:text="Rudraksha Gupta"
+                    android:textColor="@color/blueminus"
+                    android:textSize="15sp"/>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:layout_marginLeft="20dp">
 
-                    android:textSize="20sp"/>
+                <com.app.aparoksha.apro16.RoundedImageView
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:src="@mipmap/naveen"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Naveen Shukla"
+                    android:textColor="@color/blueminus"
+                    android:textSize="15sp"/>
             </LinearLayout>
         </LinearLayout>
 
     </LinearLayout>
-
+    </ScrollView>
 </RelativeLayout>

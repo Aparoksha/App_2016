@@ -292,6 +292,49 @@
                             android:orientation="horizontal"
                             android:gravity="center"
                             android:padding="8dp"
+                            android:id = "@+id/organiser1">
+
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical"
+                                >
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Naz Tabassum"
+                                    android:textSize="17sp"
+                                    android:textColor="@color/white"
+                                    />
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="8127705872"
+                                    android:id="@+id/number1"
+                                    android:textColor="@color/blueminus"
+                                    />
+                            </LinearLayout>
+                            <RelativeLayout
+                                android:layout_width="fill_parent"
+                                android:layout_height="wrap_content">
+
+                                <ImageView
+                                    android:layout_marginTop="10dp"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:src="@drawable/call"
+                                    android:layout_alignParentTop="true"
+                                    android:layout_alignParentRight="true"
+                                    android:layout_alignParentEnd="true" />
+                            </RelativeLayout>
+                        </LinearLayout>
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+
+                            android:orientation="horizontal"
+                            android:gravity="center"
+                            android:padding="8dp"
                             android:id = "@+id/organiser2">
 
                             <LinearLayout
@@ -302,14 +345,14 @@
                                 <TextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:text="Kumar Sanyam"
+                                    android:text="Upasana Singh"
                                     android:textSize="17sp"
                                     android:textColor="@color/white"
                                     />
                                 <TextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:text="8953322927"
+                                    android:text="9807369266"
                                     android:id="@+id/num2"
                                     android:textColor="@color/blueminus"
                                     />
@@ -322,7 +365,7 @@
                                     android:layout_marginTop="10dp"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:src="@drawable/ic_settings"
+                                    android:src="@drawable/call"
                                     android:layout_alignParentTop="true"
                                     android:layout_alignParentRight="true"
                                     android:layout_alignParentEnd="true" />
@@ -345,14 +388,14 @@
                                 <TextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:text="Naz Tabassum"
+                                    android:text="Rooha Sri"
                                     android:textSize="17sp"
                                     android:textColor="@color/white"
                                     />
                                 <TextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:text="8127705872"
+                                    android:text="1234567890"
                                     android:id="@+id/number3"
                                     android:textColor="@color/blueminus"
                                     />
@@ -365,7 +408,7 @@
                                     android:layout_marginTop="10dp"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:src="@drawable/ic_settings"
+                                    android:src="@drawable/call"
                                     android:layout_alignParentTop="true"
                                     android:layout_alignParentRight="true"
                                     android:layout_alignParentEnd="true" />

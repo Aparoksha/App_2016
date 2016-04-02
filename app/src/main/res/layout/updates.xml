@@ -24,11 +24,5 @@
 
         />
 
-    <View
-        android:layout_below="@+id/app_bar"
-        android:layout_width="match_parent"
-        android:layout_height="5dp"
-        android:id="@+id/shadow"
-        android:background="@drawable/toolbar_shadow" />
 
 </RelativeLayout>

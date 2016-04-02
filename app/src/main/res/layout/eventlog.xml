@@ -6,7 +6,8 @@
     android:fitsSystemWindows="true"
     android:padding="5dp"
     tools:context="com.app.aparoksha.apro16.Eventlog"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    tools:ignore="MissingPrefix">
 
     <include android:id="@+id/app_bar"
         layout="@layout/app_bar"/>
@@ -49,7 +50,8 @@
                         android:background="@drawable/roundedbutton"
                         android:padding="4dp"
                         android:text="Coding"
-                        android:textColor="#ffffff" />
+                        android:textColor="#ffffff"
+                        fontpath = "fonts/JosefinSans-Bold.ttf"/>
 
                     <Button
                         android:id="@+id/button2"
@@ -60,7 +62,8 @@
                         android:background="@drawable/roundedbutton"
                         android:padding="4dp"
                         android:text="Development"
-                        android:textColor="#ffffff" />
+                        android:textColor="#ffffff"
+                        fontpath = "fonts/JosefinSans-Bold.ttf"/>
 
                     <Button
                         android:id="@+id/button3"
@@ -71,7 +74,8 @@
                         android:background="@drawable/roundedbutton"
                         android:padding="4dp"
                         android:text="Electronics"
-                        android:textColor="#ffffff" />
+                        android:textColor="#ffffff"
+                        fontpath = "fonts/JosefinSans-Bold.ttf"/>
                     <Button
                         android:id="@+id/button4"
                         android:layout_width="120dp"
@@ -81,7 +85,8 @@
                         android:background="@drawable/roundedbutton"
                         android:padding="4dp"
                         android:text="Quiz"
-                        android:textColor="#ffffff" />
+                        android:textColor="#ffffff"
+                        fontpath = "fonts/JosefinSans-Bold.ttf"/>
                     <Button
                         android:id="@+id/button5"
                         android:layout_width="120dp"
@@ -91,7 +96,8 @@
                         android:background="@drawable/roundedbutton"
                         android:padding="4dp"
                         android:text="Gaming"
-                        android:textColor="#ffffff" />
+                        android:textColor="#ffffff"
+                        fontpath = "fonts/JosefinSans-Bold.ttf"/>
                     <Button
                         android:id="@+id/button6"
                         android:layout_width="120dp"
@@ -101,7 +107,8 @@
                         android:background="@drawable/roundedbutton"
                         android:padding="4dp"
                         android:text="Misc"
-                        android:textColor="#ffffff" />
+                        android:textColor="#ffffff"
+                        fontpath = "fonts/JosefinSans-Bold.ttf"/>
 
                 </LinearLayout>
             </HorizontalScrollView>
@@ -114,12 +121,13 @@
                 android:text="Signature Events"
                 android:textColor="@color/white"
                 android:textAppearance="?android:attr/textAppearanceLarge"
-                android:textSize="25dp" />
+                android:textSize="25dp"
+                fontpath = "fonts/JosefinSans-SemiBold.ttf"/>
             <TextView
                 android:id="@+id/textView01"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="2dp"
+                android:layout_marginTop="1dp"
                 android:text="Huge prizes + opportunities."
                 android:textColor="@color/red"
                 android:textAppearance="?android:attr/textAppearanceLarge"
@@ -129,7 +137,7 @@
             <android.support.v7.widget.RecyclerView
                 android:id="@+id/signatureEventList"
                 android:layout_width="match_parent"
-                android:layout_height="220dp"
+                android:layout_height="190dp"
                 android:minHeight="300dp"
                 android:layout_marginTop="5dp"/>
 
@@ -137,25 +145,27 @@
                 android:id="@+id/textView1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="25dp"
+                android:layout_marginTop="0dp"
                 android:text="Formal Events"
                 android:textColor="@color/white"
                 android:textAppearance="?android:attr/textAppearanceLarge"
-                android:textSize="25dp" />
+                android:textSize="25dp"
+                fontpath = "fonts/JosefinSans-SemiBold.ttf"/>
             <TextView
+                fontpath = "fonts/JosefinSans-Regular.ttf"
                 android:id="@+id/textView11"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="2dp"
                 android:text="Dedicated events to participate"
                 android:textColor="@color/red"
-                android:textAppearance="?android:attr/textAppearanceLarge"
-                android:textSize="18dp" />
+                android:textSize="18dp"
+                android:layout_marginTop="0dp"
+                 />
 
             <android.support.v7.widget.RecyclerView
                 android:id="@+id/formalEventList"
                 android:layout_width="match_parent"
-                android:layout_height="220dp"
+                android:layout_height="190dp"
                 android:minHeight="300dp"
                 android:layout_marginTop="5dp"/>
 
@@ -163,16 +173,17 @@
                 android:id="@+id/textView2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="25dp"
+                android:layout_marginTop="15dp"
                 android:text="Informal Events"
                 android:textColor="@color/white"
                 android:textAppearance="?android:attr/textAppearanceLarge"
-                android:textSize="25dp" />
+                android:textSize="25dp"
+                fontpath = "fonts/JosefinSans-SemiBold.ttf"/>
             <TextView
                 android:id="@+id/textView21"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="2dp"
+                android:layout_marginTop="1dp"
                 android:text="Are you waiting for some fun?"
                 android:textColor="@color/red"
                 android:textAppearance="?android:attr/textAppearanceLarge"
@@ -181,7 +192,7 @@
             <android.support.v7.widget.RecyclerView
                 android:id="@+id/informalEventList"
                 android:layout_width="match_parent"
-                android:layout_height="220dp"
+                android:layout_height="190dp"
                 android:minHeight="300dp"
                 android:layout_marginTop="5dp"/>
 
@@ -189,16 +200,17 @@
                 android:id="@+id/textView3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="25dp"
+                android:layout_marginTop="15dp"
                 android:text="Online Events"
                 android:textColor="@color/white"
                 android:textAppearance="?android:attr/textAppearanceLarge"
-                android:textSize="25dp" />
+                android:textSize="25dp"
+                fontpath = "fonts/JosefinSans-SemiBold.ttf"/>
             <TextView
                 android:id="@+id/textView31"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="2dp"
+                android:layout_marginTop="1dp"
                 android:text="Anyone! Anywhere! Anytime!"
                 android:textColor="@color/red"
                 android:textAppearance="?android:attr/textAppearanceLarge"
@@ -207,7 +219,7 @@
             <android.support.v7.widget.RecyclerView
                 android:id="@+id/onlineEventList"
                 android:layout_width="match_parent"
-                android:layout_height="220dp"
+                android:layout_height="190dp"
                 android:minHeight="300dp"
                 android:layout_marginTop="5dp"/>
 

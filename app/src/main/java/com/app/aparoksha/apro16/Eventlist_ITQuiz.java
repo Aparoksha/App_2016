@@ -56,7 +56,7 @@ public class Eventlist_ITQuiz extends AppCompatActivity implements View.OnClickL
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         collapsingToolbar = (CollapsingToolbarLayout) findViewById(R.id.collapsing_toolbar);
-        collapsingToolbar.setTitle("Android Quiz");
+        collapsingToolbar.setTitle("IT Quiz");
 
         desc = (LinearLayout)findViewById(R.id.desc);
         rules = (LinearLayout)findViewById(R.id.rules);

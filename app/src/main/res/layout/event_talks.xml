@@ -222,7 +222,7 @@
                             android:layout_gravity="center"
                             android:paddingTop="10dp"
                             android:textSize="20dp"
-                            android:text="@string/desc_androidquiz"
+                            android:text="To be Updated"
                             />
                     </LinearLayout>
                     <LinearLayout
@@ -245,7 +245,7 @@
                             android:layout_gravity="center"
                             android:paddingTop="10dp"
                             android:textSize="20dp"
-                            android:text="@string/rules_androidquiz"
+                            android:text="To be updated"
                             />
                     </LinearLayout>
                     <LinearLayout
@@ -268,7 +268,7 @@
                             android:layout_gravity="center"
                             android:paddingTop="10dp"
                             android:textSize="20dp"
-                            android:text="@string/prize_androidquiz"
+                            android:text="To be updated"
                             />
                     </LinearLayout>
                     <LinearLayout
@@ -302,14 +302,14 @@
                                 <TextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:text="Kumar Sanyam"
+                                    android:text=""
                                     android:textSize="17sp"
                                     android:textColor="@color/white"
                                     />
                                 <TextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:text="8953322927"
+                                    android:text=""
                                     android:id="@+id/num1"
                                     android:textColor="@color/blueminus"
                                     />
@@ -322,7 +322,7 @@
                                     android:layout_marginTop="10dp"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:src="@drawable/ic_settings"
+
                                     android:layout_alignParentTop="true"
                                     android:layout_alignParentRight="true"
                                     android:layout_alignParentEnd="true" />
@@ -345,14 +345,14 @@
                                 <TextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:text="Naz Tabassum"
+                                    android:text=""
                                     android:textSize="17sp"
                                     android:textColor="@color/white"
                                     />
                                 <TextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:text="8127705872"
+                                    android:text=""
                                     android:id="@+id/number2"
                                     android:textColor="@color/blueminus"
                                     />
@@ -365,7 +365,7 @@
                                     android:layout_marginTop="10dp"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:src="@drawable/ic_settings"
+
                                     android:layout_alignParentTop="true"
                                     android:layout_alignParentRight="true"
                                     android:layout_alignParentEnd="true" />
@@ -388,14 +388,14 @@
                                 <TextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:text="Upasana Singh"
+                                    android:text=""
                                     android:textSize="17sp"
                                     android:textColor="@color/white"
                                     />
                                 <TextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:text="9807369266"
+                                    android:text=""
                                     android:id="@+id/num3"
                                     android:textColor="@color/blueminus"
                                     />
@@ -408,7 +408,7 @@
                                     android:layout_marginTop="10dp"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:src="@drawable/ic_settings"
+
                                     android:layout_alignParentTop="true"
                                     android:layout_alignParentRight="true"
                                     android:layout_alignParentEnd="true" />

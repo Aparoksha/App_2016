@@ -33,7 +33,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="22sp"
-
+            android:textColor="@color/white"
 
             />
         <TextView
@@ -43,24 +43,13 @@
             android:text="10:30 AM"
             android:textAppearance="?android:attr/textAppearanceSmall"
             android:layout_marginTop="5dp"
-            android:textColor="#03a9f4"
-
-            />
-        <TextView
-            android:id ="@+id/eventVenue"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="CC3"
-            android:textAppearance="?android:attr/textAppearanceSmall"
-            android:layout_marginTop="5dp"
-            android:textColor="#03a9f4"
+            android:textColor="@color/blueminus"
 
             />
         <View
-
             android:layout_width="match_parent"
             android:layout_height="1dp"
-            android:background="#d3d3d3"
+            android:background="@color/redplus"
             android:layout_marginTop="20dp"
             />
     </LinearLayout>

@@ -222,7 +222,7 @@
                             android:layout_gravity="center"
                             android:paddingTop="10dp"
                             android:textSize="20dp"
-                            android:text="@string/desc_androidquiz"
+                            android:text=""
                             />
                     </LinearLayout>
                     <LinearLayout
@@ -245,7 +245,7 @@
                             android:layout_gravity="center"
                             android:paddingTop="10dp"
                             android:textSize="20dp"
-                            android:text="@string/rules_androidquiz"
+                            android:text=""
                             />
                     </LinearLayout>
                     <LinearLayout
@@ -268,7 +268,7 @@
                             android:layout_gravity="center"
                             android:paddingTop="10dp"
                             android:textSize="20dp"
-                            android:text="@string/prize_androidquiz"
+                            android:text=""
                             />
                     </LinearLayout>
                     <LinearLayout
@@ -292,6 +292,7 @@
                             android:orientation="horizontal"
                             android:gravity="center"
                             android:padding="8dp"
+                            android:visibility="invisible"
                             android:id = "@+id/organiser1">
 
                             <LinearLayout
@@ -335,6 +336,7 @@
                             android:orientation="horizontal"
                             android:gravity="center"
                             android:padding="8dp"
+                            android:visibility="invisible"
                             android:id = "@+id/organiser2">
 
                             <LinearLayout
@@ -377,6 +379,7 @@
 
                             android:orientation="horizontal"
                             android:gravity="center"
+                            android:visibility="invisible"
                             android:padding="8dp"
                             android:id = "@+id/organiser3">
 

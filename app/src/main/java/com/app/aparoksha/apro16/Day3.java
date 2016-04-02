@@ -1,7 +1,9 @@
 package com.app.aparoksha.apro16;
 
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
+import android.graphics.Typeface;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -23,6 +25,9 @@ import com.baoyz.swipemenulistview.SwipeMenuListView;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+import uk.co.chrisjenx.calligraphy.CalligraphyConfig;
+import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
+
 /**
  * Created by Satyam Poddar on 30-Jan-16.
  */
@@ -32,18 +37,29 @@ public class Day3 extends AppCompatActivity{
     String[] events_1;
     int[] images;
     String[] timing;
-    String[] venue;
     String[] intents;
-    TextView eventName;
+    TextView eventName,act_name;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        CalligraphyConfig.initDefault(new CalligraphyConfig.Builder()
+                        .setDefaultFontPath("fonts/JosefinSans-Regular.ttf")
+                        .setFontAttrId(R.attr.fontPath)
+                        .build()
+        );
         setContentView(R.layout.eventsnow);
 
         toolbar = (Toolbar) findViewById(R.id.app_bar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        act_name = (TextView)findViewById(R.id.activity_name);
+        Typeface tf1 = Typeface.createFromAsset(getAssets(),
+                "JosefinSans-Regular.ttf");
+
+        act_name.setTypeface(tf1);
+        act_name.setText("Day 4");
 
         mList = (SwipeMenuListView) findViewById(R.id.listView);
         // step 1. create a MenuCreator
@@ -55,8 +71,8 @@ public class Day3 extends AppCompatActivity{
                 SwipeMenuItem openItem = new SwipeMenuItem(
                         getApplicationContext());
                 // set item background
-                openItem.setBackground(new ColorDrawable(Color.rgb(0x38, 0x8e,
-                        0x3c)));
+                openItem.setBackground(new ColorDrawable(Color.rgb(0x52, 0xb3,
+                        0xd9)));
                 // set item width
                 openItem.setWidth(dp2px(90));
                 // set item title
@@ -90,22 +106,24 @@ public class Day3 extends AppCompatActivity{
 
 
         //Add events in this array
-        events_1 = new String[] {"Pool Master","Flappy Bird","Novita","Three Musketeers","Riddilonics Final Round","Android Quiz","Tech Quiz Final","Movie-Room","Movie-The Witch"};
+        events_1 = new String[] {"Pool Master","Flappy Bird","Novita","Three Musketeers","Riddilonics Final Round","C Fresh Finals",
+                "Android Quiz","Backbone"};
 
-        images = new int[] {R.mipmap.ic_launcher,R.mipmap.ic_launcher,R.mipmap.ic_launcher,R.mipmap.ic_launcher,R.mipmap.ic_launcher,R.mipmap.ic_launcher,R.mipmap.ic_launcher,R.mipmap.ic_launcher,R.mipmap.ic_launcher };
+        images = new int[] {R.drawable.pool,R.drawable.flappy,R.mipmap.ic_launcher,R.drawable.threemuski,R.drawable.riddlonics,
+        R.drawable.cfresh,R.drawable.android,R.drawable.backbone};
 
-        timing = new String[] {"11 AM - 1 PM","12 AM - 1 PM","1.30 PM - 4.30 PM","1.30 PM - 3.30 PM","1.30 PM - 3.30 PM","3.30 PM - 4.30 PM","4.30 PM - 6.30 PM","11 PM","1 PM"};
+        timing = new String[] {"11 AM - 1 PM, Swimming Pool","12 AM - 1 PM, Tennis Court","1.30 PM - 4.30 PM, Admin Audi",
+                "1.30 PM - 3.30 PM, CC3","1.30 PM - 3.30 PM, Lab 2311","3.30 PM - 4.30 PM, CC3","3.30 PM - 4.30 PM, CC3 5006","4.30 PM - 6.30 PM"
+        ,"CC3 First Floor Labs"};
 
-        venue = new String[] {"Swimming Pool","Tennis Court","Admin Audi","CC3","2311","CC3","Admin Audi","LT","LT"};
+        intents = new String[]{"POO", "FLA", "MAIN1", "THR", "RID","CFR","AND","BAC" };
 
-    intents = new String[]{"POO", "FLA", "DES", "THR", "DES", "AND", "ITQ", "DES", "DES" };
-
-        initList(events_1, images, timing,venue, intents);
+        initList(events_1, images, timing, intents);
 
     }
 
 
-    public void initList(String[] eventsArray, int[] imagesList, String[] timingList, String[] venue, String[] intentsList) {
+    public void initList(String[] eventsArray, int[] imagesList, String[] timingList, String[] intentsList) {
         if(eventsArray.length != 0) {
 
             ArrayList<HashMap<String, String>> eventList = new ArrayList<HashMap<String, String>>();
@@ -115,7 +133,6 @@ public class Day3 extends AppCompatActivity{
                 candy.put("event", eventsArray[i]);
                 candy.put("image", Integer.toString(imagesList[i]));
                 candy.put("time", timingList[i]);
-                candy.put("venue", venue[i]);
                 candy.put("intent", "com.app.aparoksha.apro16."+intentsList[i].trim());
                 eventList.add(candy);
             }
@@ -124,8 +141,8 @@ public class Day3 extends AppCompatActivity{
                     Day3.this ,
                     eventList,
                     R.layout.list_item,
-                    new String[] { "event", "image", "time", "venue", "intent" },
-                    new int[] { R.id.event_name, R.id.eventImg, R.id.eventTime,R.id.eventVenue, R.id.intent }) {
+                    new String[] { "event", "image", "time", "intent" },
+                    new int[] { R.id.event_name, R.id.eventImg, R.id.eventTime, R.id.intent }) {
                 @Override
                 public View getView(int position, View convertView, ViewGroup parent) {
                     View view = super.getView(position, convertView, parent);
@@ -180,5 +197,9 @@ public class Day3 extends AppCompatActivity{
             finish();
         }
         return super.onOptionsItemSelected(item);
+    }
+    @Override
+    protected void attachBaseContext(Context newBase) {
+        super.attachBaseContext(CalligraphyContextWrapper.wrap(newBase));
     }
 }

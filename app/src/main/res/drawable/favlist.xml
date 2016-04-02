@@ -10,7 +10,7 @@
 
         </shape>
     </item>
-    <item android:drawable="@drawable/b1">
+    <item android:drawable="@drawable/favrect">
 
     </item>
     <item>
@@ -18,7 +18,7 @@
             >
 
 
-            <stroke android:width="1dip" android:color="#52B3D9"/>
+            <stroke android:width="1dip" android:color="#ff3c0302"/>
 
 
         </shape>

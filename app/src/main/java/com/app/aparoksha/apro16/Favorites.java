@@ -1,9 +1,11 @@
 package com.app.aparoksha.apro16;
 
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
@@ -16,20 +18,34 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 import DBManager.DBFavs;
+import uk.co.chrisjenx.calligraphy.CalligraphyConfig;
 
 public class Favorites extends AppCompatActivity implements AdapterView.OnItemClickListener {
 
     private ListView mList;
     private Toolbar toolbar;
+    TextView act_name;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        CalligraphyConfig.initDefault(new CalligraphyConfig.Builder()
+                        .setDefaultFontPath("fonts/JosefinSans-Regular.ttf")
+                        .setFontAttrId(R.attr.fontPath)
+                        .build()
+        );
         setContentView(R.layout.favorites);
         toolbar = (Toolbar) findViewById(R.id.app_bar);
 
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+        act_name = (TextView)findViewById(R.id.activity_name);
+        Typeface tf1 = Typeface.createFromAsset(getAssets(),
+                "JosefinSans-Regular.ttf");
+
+        act_name.setTypeface(tf1);
+        act_name.setText("Favorites");
 
         mList = (ListView)findViewById(R.id.listFav);
 
@@ -42,6 +58,7 @@ public class Favorites extends AppCompatActivity implements AdapterView.OnItemCl
         obj = retrieve.getData(0);
         events = (ArrayList<String>) obj[0];
         intents = (ArrayList<String>) obj[1];
+        Log.d("hello",events + " " + intents);
         retrieve.close();
         //retreival closed
 

@@ -1,21 +1,20 @@
 package com.app.aparoksha.apro16;
 
-/**
- * Created by Ratul on 29-Mar-16.
- */
-
 import android.content.Context;
 import android.content.Intent;
 import android.util.Log;
+
 import com.parse.ParsePushBroadcastReceiver;
 
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import DBManager.DBNotif;
 
 /**
- * Created by Ravi on 01/06/15.
+ * Created by Ratul on 3/29/2016.
  */
+
 public class CustomPushNotification extends ParsePushBroadcastReceiver {
     private final String TAG = CustomPushNotification.class.getSimpleName();
 
@@ -71,6 +70,12 @@ public class CustomPushNotification extends ParsePushBroadcastReceiver {
             String title = data.getString("title");
             String message = data.getString("message");
             String intent = data.getString("intent");
+            //save in DB
+            DBNotif entry = new DBNotif(context);
+            entry.openandwrite();
+            entry.createEntry(message, intent);
+            entry.close();
+
             Log.e(TAG, "Push notification sent " + title + " " + message + " " + intent);
             if (!isBackground) {
                 Intent resultIntent = new Intent(intent);

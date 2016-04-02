@@ -222,7 +222,7 @@
                             android:layout_gravity="center"
                             android:paddingTop="10dp"
                             android:textSize="20dp"
-                            android:text="@string/desc_androidquiz"
+                            android:text="@string/desc_coldfire"
                             />
                     </LinearLayout>
                     <LinearLayout
@@ -245,7 +245,7 @@
                             android:layout_gravity="center"
                             android:paddingTop="10dp"
                             android:textSize="20dp"
-                            android:text="@string/rules_androidquiz"
+                            android:text="@string/rules_coldfire"
                             />
                     </LinearLayout>
                     <LinearLayout
@@ -268,7 +268,7 @@
                             android:layout_gravity="center"
                             android:paddingTop="10dp"
                             android:textSize="20dp"
-                            android:text="@string/prize_androidquiz"
+                            android:text="@string/prize_coldfire"
                             />
                     </LinearLayout>
                     <LinearLayout
@@ -292,7 +292,8 @@
                             android:orientation="horizontal"
                             android:gravity="center"
                             android:padding="8dp"
-                            android:id = "@+id/organiser1">
+                            android:id = "@+id/organiser1"
+                            android:visibility="gone">
 
                             <LinearLayout
                                 android:layout_width="wrap_content"
@@ -322,7 +323,7 @@
                                     android:layout_marginTop="10dp"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:src="@drawable/ic_settings"
+                                    android:src="@drawable/call"
                                     android:layout_alignParentTop="true"
                                     android:layout_alignParentRight="true"
                                     android:layout_alignParentEnd="true" />
@@ -335,7 +336,8 @@
                             android:orientation="horizontal"
                             android:gravity="center"
                             android:padding="8dp"
-                            android:id = "@+id/organiser2">
+                            android:id = "@+id/organiser2"
+                            android:visibility="gone">
 
                             <LinearLayout
                                 android:layout_width="wrap_content"
@@ -365,7 +367,7 @@
                                     android:layout_marginTop="10dp"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:src="@drawable/ic_settings"
+                                    android:src="@drawable/call"
                                     android:layout_alignParentTop="true"
                                     android:layout_alignParentRight="true"
                                     android:layout_alignParentEnd="true" />
@@ -378,7 +380,8 @@
                             android:orientation="horizontal"
                             android:gravity="center"
                             android:padding="8dp"
-                            android:id = "@+id/organiser3">
+                            android:id = "@+id/organiser3"
+                            android:visibility="gone">
 
                             <LinearLayout
                                 android:layout_width="wrap_content"
@@ -408,7 +411,7 @@
                                     android:layout_marginTop="10dp"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:src="@drawable/ic_settings"
+                                    android:src="@drawable/call"
                                     android:layout_alignParentTop="true"
                                     android:layout_alignParentRight="true"
                                     android:layout_alignParentEnd="true" />

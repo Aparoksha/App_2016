@@ -79,9 +79,9 @@ public class Eventlist_ExMachina extends AppCompatActivity implements View.OnCli
         num2 = (TextView) findViewById(R.id.number2);
         org2 = (LinearLayout) findViewById(R.id.organiser2);
         org2.setOnClickListener(this);
-        num3 = (TextView) findViewById(R.id.num3);
+        /*num3 = (TextView) findViewById(R.id.num3);
         org3 = (LinearLayout) findViewById(R.id.organiser3);
-        org3.setOnClickListener(this);
+        org3.setOnClickListener(this);*/
 
         // Animation in = AnimationUtils.loadAnimation(this, android.R.anim.fade_in);
         // Animation out = AnimationUtils.loadAnimation(this, android.R.anim.fade_out);

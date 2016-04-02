@@ -9,9 +9,9 @@ import com.parse.ParsePush;
 import com.parse.SaveCallback;
 
 /**
- * Created by Ratul on 29-Mar-16.
+ * Created by user on 3/29/2016.
  */
-public class parse_config extends Application{
+public class parse_config extends Application {
 
     private static String TAG = parse_config.class.getSimpleName();
     @Override
@@ -31,4 +31,3 @@ public class parse_config extends Application{
         Log.d(TAG, "not rgtd.");
     }
 }
-

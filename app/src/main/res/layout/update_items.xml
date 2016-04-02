@@ -32,30 +32,21 @@
             android:text="Complete "
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="22sp"
+            android:textSize="15sp"
 
 
             />
-        <TextView
-            android:id ="@+id/eventTime"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="10:30 AM"
-            android:textAppearance="?android:attr/textAppearanceSmall"
-            android:layout_marginTop="5dp"
-            android:textColor="#03a9f4"
+        <!--<TextView-->
+        <!--android:id ="@+id/eventTime"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:text="10:30 AM"-->
+        <!--android:textAppearance="?android:attr/textAppearanceSmall"-->
+        <!--android:layout_marginTop="5dp"-->
+        <!--android:textColor="#03a9f4"-->
 
-            />
-        <TextView
-            android:id ="@+id/eventVenue"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="CC3"
-            android:textAppearance="?android:attr/textAppearanceSmall"
-            android:layout_marginTop="5dp"
-            android:textColor="#03a9f4"
+        <!--/>-->
 
-            />
         <View
 
             android:layout_width="match_parent"

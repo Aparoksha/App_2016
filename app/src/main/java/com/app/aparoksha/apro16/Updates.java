@@ -4,26 +4,25 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.ViewGroup;
-import android.view.Window;
 import android.widget.AdapterView;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
 import android.widget.TextView;
 
-import com.parse.FindCallback;
-import com.parse.ParseObject;
-import com.parse.ParseQuery;
-
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 
+import DBManager.DBNotif;
 
-public class Updates extends AppCompatActivity {
+/**
+ * Created by Satyam Poddar on 30-Jan-16.
+ */
+
+public class Updates extends AppCompatActivity implements AdapterView.OnItemClickListener {
     Integer temp;
     TextView tv;
     private Toolbar toolbar;
@@ -38,7 +37,7 @@ public class Updates extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
-        getWindow().requestFeature((Window.FEATURE_ACTION_BAR_OVERLAY));
+        // getWindow().requestFeature((Window.FEATURE_ACTION_BAR_OVERLAY));
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.updates);
@@ -52,77 +51,42 @@ public class Updates extends AppCompatActivity {
         //dont forget to change the list ID
         mList = (ListView) findViewById(R.id.listUpdate);
         //shad = (View) findViewById(R.id.shadow);
+        //   mList = (ListView)findViewById(R.id.listFav);
 
+        //retrieving data
+        DBNotif retrieve = new DBNotif(this);
+        retrieve.openandwrite();
+        Object[] obj = new Object[2];
+        ArrayList<String> events = new ArrayList<String>();
+        ArrayList<String> intents = new ArrayList<String>();
+        obj = retrieve.getData(0);
+        events = (ArrayList<String>) obj[0];
+        intents = (ArrayList<String>) obj[1];
+        Log.d("hello",events + " " + intents);
+        retrieve.close();
+        //retreival closed
 
-        //mList.addHeaderView(Updates.this.getLayoutInflater().inflate(R.layout.listview_header, null));
+        ArrayList<HashMap<String, String>> eventList = new ArrayList<HashMap<String, String>>();
 
-        ParseQuery<ParseObject> query = ParseQuery.getQuery("Updates");
-        //query.setLimit(10);
-        query.findInBackground(new FindCallback<ParseObject>() {
-            @Override
-            public void done(List<ParseObject> event_list, com.parse.ParseException e) {
-                if (e == null) {
-                    //temp = event_list.get(0).getInt("Temperature");
-                    //Toast.makeText(Updates.this, event_list.size() + " ", Toast.LENGTH_LONG).show();
-                    for (int i = 0; i < event_list.size(); i++) {
-                        events[i] = event_list.get(i).getString("Events").toString();
-                        //Toast.makeText(Updates.this, events[i], Toast.LENGTH_LONG).show();
-                        timing[i] = event_list.get(i).getString("Timing").toString();
-                        venue[i] = event_list.get(i).getString("Venue").toString();
-                        intents[i] = event_list.get(i).getString("Intent").toString();
-
-                    }
-                    initList(events, timing, venue, intents,event_list.size());
-
-
-                } else {
-                    e.printStackTrace();
-                }
-            }
-        });
-//
-    }
-
-    public void initList(String[] eventsArray, String[] timingList, String[] venue, String[] intentsList,int len) {
-        if (eventsArray.length != 0) {
-
-            ArrayList<HashMap<String, String>> eventList = new ArrayList<HashMap<String, String>>();
-
-            for (int i = 0; i < len; i++) {
-                HashMap<String, String> candy = new HashMap<String, String>();
-                candy.put("event", eventsArray[i]);
-                candy.put("time", timingList[i]);
-                candy.put("venue", venue[i]);
-                candy.put("intent", intentsList[i]);
-                eventList.add(candy);
-            }
-            ListAdapter adapter = new SimpleAdapter(
-                    Updates.this,
-                    eventList,
-                    R.layout.update_items,
-                    new String[]{"event", "time", "venue", "intent"},
-                    new int[]{R.id.event_name, R.id.eventTime, R.id.eventVenue, R.id.intent}) {
-                @Override
-                public View getView(int position, View convertView, ViewGroup parent) {
-                    View view = super.getView(position, convertView, parent);
-                    TextView item_name = (TextView) view.findViewById(R.id.event_name);
-
-                    return view;
-                }
-            };
-            mList.setAdapter(adapter);
+        for(int i = (events.size()-1); i >= 0; i--) {
+            HashMap<String, String> candy = new HashMap<String, String>();
+            candy.put("event", events.get(i));
+            //  candy.put("image", Integer.toString(imagesList[i]));
+            //candy.put("time", timingList[i]);
+            candy.put("intent", intents.get(i));
+            eventList.add(candy);
         }
-        mList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                String intentToOpen = "com.app.aparoksha.apro16." + intents[position];
 
+        ListAdapter adapter = new SimpleAdapter(
+                Updates.this ,
+                eventList,
+                R.layout.update_items,
+                new String[] { "event", "intent" },
+                new int[] { R.id.event_name, R.id.intent}) ;
 
-                Intent i = new Intent(intentToOpen);
-                i.putExtra("INTENT", intentToOpen);
-                startActivity(i);
-            }
-        });
+        mList.setAdapter(adapter);
+        mList.setOnItemClickListener(this);
+
     }
 
 
@@ -140,5 +104,14 @@ public class Updates extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
+    @Override
+    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+        TextView  getIntentName = (TextView) view.findViewById(R.id.intent);
+        String intentToOpen = getIntentName.getText().toString();
+
+        Intent i = new Intent(intentToOpen);
+        i.putExtra("INTENT", intentToOpen);
+        startActivity(i);
+    }
 }
 

@@ -1,7 +1,9 @@
 package com.app.aparoksha.apro16;
 
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
+import android.graphics.Typeface;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -23,6 +25,9 @@ import com.baoyz.swipemenulistview.SwipeMenuListView;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+import uk.co.chrisjenx.calligraphy.CalligraphyConfig;
+import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
+
 /**
  * Created by rudraksha on 13-Mar-16.
  */
@@ -33,16 +38,27 @@ public class Cat_electronics extends AppCompatActivity{
     int[] images;
     String[] timing;
     String[] intents;
-    TextView eventName;
+    TextView eventName,act_name;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        CalligraphyConfig.initDefault(new CalligraphyConfig.Builder()
+                        .setDefaultFontPath("fonts/JosefinSans-Regular.ttf")
+                        .setFontAttrId(R.attr.fontPath)
+                        .build()
+        );
         setContentView(R.layout.eventsnow);
 
         toolbar = (Toolbar) findViewById(R.id.app_bar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        act_name = (TextView)findViewById(R.id.activity_name);
+        Typeface tf1 = Typeface.createFromAsset(getAssets(),
+                "JosefinSans-Regular.ttf");
+
+        act_name.setTypeface(tf1);
+        act_name.setText("Electronics");
 
         mList = (SwipeMenuListView) findViewById(R.id.listView);
         // step 1. create a MenuCreator
@@ -54,8 +70,8 @@ public class Cat_electronics extends AppCompatActivity{
                 SwipeMenuItem openItem = new SwipeMenuItem(
                         getApplicationContext());
                 // set item background
-                openItem.setBackground(new ColorDrawable(Color.rgb(0x38, 0x8e,
-                        0x3c)));
+                openItem.setBackground(new ColorDrawable(Color.rgb(0xf4, 0x43,
+                        0x36)));
                 // set item width
                 openItem.setWidth(dp2px(90));
                 // set item title
@@ -71,8 +87,8 @@ public class Cat_electronics extends AppCompatActivity{
                 SwipeMenuItem deleteItem = new SwipeMenuItem(
                         getApplicationContext());
                 // set item background
-                deleteItem.setBackground(new ColorDrawable(Color.rgb(0xff,
-                        0x00, 0x00)));
+                deleteItem.setBackground(new ColorDrawable(Color.rgb(0x28,
+                        0x28, 0x28)));
                 // set item width
                 deleteItem.setWidth(dp2px(90));
                 // set a icon
@@ -91,11 +107,11 @@ public class Cat_electronics extends AppCompatActivity{
         //Add events in this array
         events_1 = new String[] {"Black Box", "Bolt", "Pool Runner", "Riddilonics", "Technofault", "Techno Booz", "Wolf of 2311"};
 
-        images = new int[] {R.mipmap.ic_launcher,R.mipmap.ic_launcher,R.mipmap.ic_launcher,R.mipmap.ic_launcher,R.mipmap.ic_launcher,R.mipmap.ic_launcher, R.mipmap.ic_launcher};
+        images = new int[] {R.drawable.blackbox,R.drawable.bolt,R.drawable.pool,R.drawable.riddlonics,R.drawable.technofault,R.drawable.technobooz, R.drawable.wolfof};
 
-        timing = new String[] {"Saare","All Day","Bharne","Hain","Chooth", "Ke", "Patthhe"};
+        timing = new String[] {"2:00 PM, CC3","All Day","4:00 PM, CC3","4:45 PM, CC3","6:00 PM, CC3", "6:30 PM, CC3", "All Day"};
 
-        intents = new String[]{"DES", "DES", "DES", "DES", "DES", "DES", "DES" };
+        intents = new String[]{"BLA", "BOL", "POO", "RID", "TECFA", "TECBO", "WOL" };
 
         initList(events_1, images, timing, intents);
 
@@ -176,5 +192,9 @@ public class Cat_electronics extends AppCompatActivity{
             finish();
         }
         return super.onOptionsItemSelected(item);
+    }
+    @Override
+    protected void attachBaseContext(Context newBase) {
+        super.attachBaseContext(CalligraphyContextWrapper.wrap(newBase));
     }
 }

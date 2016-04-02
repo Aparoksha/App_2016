@@ -401,5 +401,41 @@ Round 3:\n\n
                2nd prize : Rs. 2500 cash \n\n
                3 rd prize : Rs 1000 cash \n\n
 and goodies as consolation prizes . </string>
+    <string name="title_activity_navigate">Navigate</string>
 
+    <string name="desc_technobooz">To be updated soon</string>
+    <string name="rules_technobooz">To be updated soon</string>
+    <string name="prize_technobooz">To be updated soon</string>
+
+    <string name="desc_platzen">To be updated soon</string>
+    <string name="rules_platzen">To be updated soon</string>
+    <string name="prize_platzen">To be updated soon</string>
+
+    <string name="desc_clash">To be updated soon</string>
+    <string name="rules_clash">To be updated soon</string>
+    <string name="prize_clash">To be updated soon</string>
+
+    <string name="desc_fifa">To be updated soon</string>
+    <string name="rules_fifa">To be updated soon</string>
+    <string name="prize_fifa">To be updated soon</string>
+
+    <string name="desc_tekken6">To be updated soon</string>
+    <string name="rules_tekken6">To be updated soon</string>
+    <string name="prize_tekken6">To be updated soon</string>
+
+    <string name="desc_coldfire">To be updated soon</string>
+    <string name="rules_coldfire">To be updated soon</string>
+    <string name="prize_coldfire">To be updated soon</string>
+
+    <string name="desc_tindertime">To be updated soon</string>
+    <string name="rules_tindertime">To be updated soon</string>
+    <string name="prize_tindertime">To be updated soon</string>
+
+    <string name="desc_hackinthenorth">To be updated soon</string>
+    <string name="rules_hackinthenorth">To be updated soon</string>
+    <string name="prize_hackinthenorth">To be updated soon</string>
+
+    <string name="desc_vflare">To be updated soon</string>
+    <string name="rules_vflare">To be updated soon</string>
+    <string name="prize_vflare">To be updated soon</string>
 </resources>
